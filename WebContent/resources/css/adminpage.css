@@ -1,0 +1,53 @@
+	h1{
+		padding-bottom : 20%;
+	}
+
+	aside{
+		border : solid 1px black;
+		float : left;
+		height : 70%;
+		width : 20%;
+	}
+	
+	.box{
+		border : solid 1px black;
+		float : right;
+		height : 70%;
+		width : 78%;
+		position : relative;
+	}
+
+	#notice, #QnA{
+		position : absolute;
+		top : 0;
+	}
+	
+	.admin{
+		text-align : center;
+		line-height : 100px;
+	}
+	
+	form{
+		padding : 30px;
+	}
+
+	.search_bt{
+		background-color : white;
+		border : 0;
+	}
+	
+	#box_tb{
+		width : 100%;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
