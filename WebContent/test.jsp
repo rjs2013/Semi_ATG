@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-asdaaknkj????酵闇板し仙た詔切詔いしけいしけいけいし
+asdaaknkj????酵闇板し仙た詔切詔いしけ
 </body>
 </html>
