@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package com.atg.Register.db;
+=======
+package com.atg.register.db;
+>>>>>>> branch 'develop' of https://github.com/duswn158/Semi_ATG.git
 
 import java.io.IOException;
 import java.io.InputStream;

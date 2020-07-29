@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>Semi_ATG_0728</name>
+=======
+	<name>Semi_ATG</name>
+>>>>>>> branch 'develop' of https://github.com/duswn158/Semi_ATG.git
 	<comment></comment>
 	<projects>
 	</projects>
