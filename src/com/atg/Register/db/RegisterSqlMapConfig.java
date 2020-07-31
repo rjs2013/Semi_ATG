@@ -1,4 +1,4 @@
-package com.atg.register.db;
+package com.atg.Register.db;
 
 import java.io.IOException;
 import java.io.InputStream;

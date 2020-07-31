@@ -16,7 +16,9 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<script type="text/javascript" src="resources/js/IDPWfind.js"/>
+
+<script type="text/javascript" src="resources/js/IDPWfind.js"/></script>
+
 
 </head>
 <body>
@@ -70,42 +72,74 @@
        </nav>
    </header>
 
-	<section class="secssion">
+	
+<%!
+
+	int random = 0;
+
+	public int getRandom(){
+	
+	random = (int)Math.floor((Math.random()*(99999-10000+1)))+10000;
+	return random;
+	}
+%>
 
 
+		<br><br>
+		<br><br>
 		<div id="loginer">
-			<form id="id_form" action="" method="post">
-				<div>아이디찾기</div>
-
-				<fieldset>
-					이름 : <input type="text" id="name" name="data" placeholder=""size="20" >
-					<br><br>
-					핸드폰 번호  <input type="text" id="phone1"name="phone" placeholder="" size="20" >
-					<button value="">인증</button>
-					<br> 
-					<input type="hidden" value="0" name="check">
-				</fieldset>
-			</form>
-			<input type="button" value="아이디 찾기!" onclick="">
-
-		</div>
-
-		<form id="pwd_form" action="" method="post">
-			<div>비밀번호 찾기</div>
-
-			<fieldset>
-				아이디 : <input type="text" id="id" name="" placeholder="">
-				 <br>
-				이름: <input type="text" id="name2" name="" placeholder=""> 
+		<!--아이디 찾기 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+				<fieldset id="ids">
+				<div id="title"><h1>아이디찾기</h1></div>
 				<br>
-				핸드폰번호 <input type="text" id="phone2" name="" placeholder="">
-				<button value="">인증</button>
-				<br> <input type="hidden" value="1" name="check">
-			</fieldset>
-		</form>
-		<input type="button" value="비밀번호 찾기!" onclick="">
+					 <input type="text" id="name" name="name" placeholder="이름"size="20" required="required" >
+					<br><br>
+					
+          				<input type="text" id="email" name="email" autocomplete="off" placeholder="이메일" >@<select name="emadress" id="emadress"><option value="naver.com">naver.com</option><option value="nate.com">nate.com</option>
+              			 <option value="hanmail.com">hanmail.com</option><option value="gmail.com">gmail.com</option></select>
+              			 <button id="checkEmail" value="" onclick="emailCheck('<%=getRandom()%>');">인증번호전송</button>
+						
+						<br>
+						<br> <!-- emailCheck값에  getRandom 매개변수로 넣어서 전송  -->
+						<input type="text" id="confirm" name="" placeholder="인증번호입력 ">
+						<input type="button" onclick="checkNum('<%= random %>')" value="인증확인" />
+						<br>
+						<br>
+					<input type="hidden" value="아이디찾기" id="idsearch" onclick="idfind();" ><span id="result"></span>
+					<button id="move" onclick="location.href='login.jsp'">로그인하러가기</button>
+				</fieldset>
+		</div>
+		
+		<br><br>
+		<br><br>
+		
+		
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~비밀번호 찾기 ~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
+
+			<fieldset id="pws">
+			<div id="title"><h1>비밀번호찾기</h1></div>
+			<br>
+			<input type="text" id="PWid" name="pwid" placeholder="아이디 " required="required">
+				 <br><br>
+				
+			<input type="text" id="PWname" name="pwname" placeholder="이름" required="required"> 
+				<br><br>
+              
+              <input type="text" name="pwemailAdress" id="PWemail" autocomplete="off" placeholder="이메일">@<select name="pwemadress" id="PWemadress"><option value="naver.com">naver.com</option><option value="nate.com">nate.com</option>
+                <option value="hanmail.com">hanmail.com</option><option value="gmail.com">gmail.com</option></select>
+                <button id="PWcheckEmail" value="" onclick="PWemailCheck('<%=getRandom()%>');">인증번호전송</button>
+                
+                <br>
+                <br>
+                <input type="text" id="pwconfirm" name="" placeholder="인증번호입력 ">
+				<input type="button" onclick="PWcheckNum('<%= random %>')" value="인증확인"/>
+				<br><br>
+				<input type="hidden" id="pwsearch" value="비밀번호찾기"  onclick="pwfind();"><span id="pwresult"></span>
+				<button id="move" onclick="location.href='login.jsp'">로그인하러가기</button>
+			</fieldset>	
 
 	</section>
+
 
 	<div id="side">
 		<div class="sidebar">
