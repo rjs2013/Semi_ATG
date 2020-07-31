@@ -74,57 +74,79 @@
 	
 	<h1>회원가입 form</h1>
 	
-	<form action="Registercontroller.do" method="post">
+	
+	<h1>회원가입 form</h1>
+	<form action="RegisterController.do" id="target" name="form"   method="post" class="" >
 		<input type="hidden" name="command" value="insert"/>
 		<table border="1" >
 			<tr>
-				<th>이름</th>
-				<td><input type="text" required="required" autofocus="autofocus" width="500px" name="name"></td>
+				<th><b>이름</b></th>
+				<td>
+				<input type="text" id="name" required="required" autofocus="autofocus" width="500px" min="2" name="name" maxlength="10" placeholder="이름입력">
+				</td>
 			</tr>
 			<tr>
 				<th>성별</th>
            		 <td>
-          		 		남 <input type="radio" name="gender" value="M"/>
-            			여 <input type="radio" name="gender" value="F"/>
+          		 		남 <input type="radio" name="gender" value="M" required="required" >
+            			여 <input type="radio" name="gender" value="F" required="required" >
         	    </td>
 			</tr>
 			<tr>
-				<th>아이디</th>
+				<th><b>아이디</b></th>
 				<td>
-					<input type="text" required="required" name="id"  maxlength="20">
-					<input type="button" value="아이디 중복 확인"  onclick="idCheck();">
+					<input type="text" id="ID" required="required" name="id"  min="2"  autocomplete="off" maxlength="12" title="아이디는 4~12자의 대소문자와 숫자로만 입력 가능합니다" placeholder="아이디를 입력해주세요">
+					<input type="button" value="아이디 중복 확인" placeholder="아이디를 입력" onclick="idCheck();">
 				</td>
 			</tr>
 			<tr>
-				<th>비밀번호</th>
+				<th><b>비밀번호</b></th>
 				<td>
-					<input type="password" required="required" maxlength="12" name="pw">
+					<input type="password" id="password1"  placeholder="비밀번호입력"  min="4" maxlength="12" name="pw" required="required">
 				</td>
 			</tr>
 			<tr>
-				<th>비밀번호 확인</th>
-				<td><input type="password" required="required" maxlength="12"></td>
-			</tr>
-			<tr>
-				<th>이메일</th>
-				<td>
-					<input type="email" required="required" maxlength="50" name="email"> 
-					<input type="button" value="이메일 인증" onclick="" >
+				<th><b>비밀번호확인</b></th>
+				<td><input type="password" id="password2"  placeholder="비밀번호확인"  min="4" maxlength="12" required="required" onkeyup="fn_compare_pwd()">
+										<span id="s_result">비밀번호가 일치하지 않습니다.</span>				
 				</td>
 			</tr>
-			<tr >
-				<th>주소</th>
+			<tr>
+				<th><b>이메일</b></th>
+					<td>
+					<input type="email"  id="email"    maxlength="50" autocomplete="off" name="email" class="" placeholder="이메일을 입력해주세요" required="required"> 
+					<button id="echeck" onclick="emailCheck();">이메일중복</button>
+			</tr>
+			
+		 <%-- 	<table border="0" class="numcheck" >
+					<tr>
+						<td>
+							<b>인증번호</b>
+							<input maxlength="5" type="text" name="code" id="code" onkeyup="checkCode()" placeholder="인증번호를 입력하세여"  required="required"/>
+							<div id="checkCode"></div></td>
+							<td>
+							<input type="hidden" readonly="readonly" name="code_check"
+								id="code_check" value="<%=request.getAttribute("code")%>" />
+						</td>
+					</tr>+
+					9
+				</table>
+				<input id="hi" type="hidden" value="인증하기" onclick="ck();"> --%>
+			
+			<tr>
+				<th><b>주소</b></th>
 				<td>
-					<input type="text" value="" name="addr">
-					<input type="button" value="우편번호 찾기" onclick=""><br>
-					<input type="text" required="required"><br>
-					<input type="text" required="required">
+				<input type="text" id="sample6_postcode" class="addr1" name="addr1" placeholder="우편번호" readonly="readonly">
+				<input type="button" onclick="sample6_execDaumPostcode()"    value="우편번호 찾기" ><br>
+				<input type="text" id="sample6_address"  class="addr1" name="addr2" placeholder="주소" readonly="readonly"><br>
+				<input type="text" id="sample6_detailAddress"  class="addr1" name="addr3" placeholder="상세주소" required="required">
 				</td>
 			</tr>
 		<tr>
 			<td colspan="2" align="right">
-				<input type="submit" id="goregist" value="회원가입하기">
-				<input type="button" value="취소" onclick="location.href='regist.jsp'">
+					<input type="submit" id="btnSend"  value="회원가입하기" />
+				 <input type="reset" name="reset" value="다시 입력"/>
+				<input type="button" value="취소" onclick="location.href='login.jsp'"/>
 			</td>
 		</tr>
 		</table>
