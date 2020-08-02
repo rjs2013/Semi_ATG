@@ -55,4 +55,22 @@
     <url-pattern>/RegisterController.do</url-pattern>
   </servlet-mapping>
   
+  	<servlet>
+		<servlet-name>basket</servlet-name>
+		<servlet-class>com.atg.controller.Basketcontroller</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>basket</servlet-name>
+		<url-pattern>/Basketcontroller.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>item</servlet-name>
+		<servlet-class>com.atg.controller.Itemcontroller</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>item</servlet-name>
+		<url-pattern>/Itemcontroller.do</url-pattern>
+	</servlet-mapping>
+  
 </web-app>
