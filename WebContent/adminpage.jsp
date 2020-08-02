@@ -184,7 +184,7 @@
    							<option value="nt_content">내용으로 검색</option>
    						</select>
    						<input type="search" name="search" placeholder="검색어를 입력하세요." />
-   						<button class="search_bt" type="submit"><img class="search_img" width="15" hright="15" src="resources/img/glass1.jpg" alt="검색" /></button>
+   						<button class="search_bt" type="submit"><img class="search_img" width="15" height="15" src="resources/img/glass1.jpg" alt="검색" /></button>
    					</td>
    				</tr>
    				<tr>
