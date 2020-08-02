@@ -1,12 +1,7 @@
-
-
-
-
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<html>
 <head>
 <link rel="stylesheet" href="IDPWfind.css">
 <link rel="stylesheet" href="Template.css">
@@ -77,10 +72,10 @@
 
 	int random = 0;
 
-	public int getRandom(){
+	public int getRandom() {
 	
-	random = (int)Math.floor((Math.random()*(99999-10000+1)))+10000;
-	return random;
+		random = (int)Math.floor((Math.random()*(99999-10000+1)))+10000;
+		return random;
 	}
 %>
 

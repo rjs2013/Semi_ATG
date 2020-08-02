@@ -1,3 +1,4 @@
+<%@page import="com.atg.Register.dto.RegisterDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,6 +13,10 @@
     
 </head>
 <body>
+
+<%
+	RegisterDto LDto = (RegisterDto)session.getAttribute("LDto");
+%>
    
    <header id="header">
    	<span><h1 onclick="location.href='main.jsp'">AT-G</h1></span>
@@ -41,7 +46,7 @@
                	<span class="menu_title">운동상품</span>
                    <ol class="bottom_menu">
                        <li onclick="location.href='itemsearch.jsp'">운동기구찾기</li>
-                       <li onclick="location.href='item.jsp'">상품판매</li>
+                       <li onclick="location.href='Itemcontroller.do?command=itemlist'">상품판매</li>
                    </ol>
                </li>
                <li>
