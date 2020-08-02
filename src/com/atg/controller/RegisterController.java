@@ -108,10 +108,10 @@ public class RegisterController extends HttpServlet {
 				session.setMaxInactiveInterval(1*60);//1분동안 이벤트가 없다면 자동으로 로그아웃(자동으로세션삭제)
 				//admin일 경우 관리자 페이지
 				//아니면 
-				if(dto.getMb_grade().equals("admin")) {
-					jsResponse("관리자 로그인 성공", "testpage.jsp", response);
+				if(dto.getMb_grade().equals("ADMIN")) {
+					jsResponse("관리자 로그인 성공", "adminmain.jsp", response);
 				}else {
-					jsResponse("회원로그인 성공", "calendar.jsp", response);
+					jsResponse("회원로그인 성공", "main.jsp", response);
 				}
 			}else {
 				jsResponse("아이디와 패스워드를 다시 입력해주세요", "login.jsp", response);

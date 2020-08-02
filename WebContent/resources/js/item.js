@@ -53,7 +53,7 @@ $(document).ready(function() {
 			e.preventDefault();
 		$(".item_list:hidden").slice(0, 4).show(); // 숨김 설정된 다음 4개를 선택하여 표시
 			if($(".item_list:hidden").length == 0){ // 숨겨진 DIV가 있는지 체크
-			alert("더 이상 항목이 없습니다"); // 더 이상 로드할 항목이 없는 경우 경고
+				$("#plus_list").hide(); // 더 이상 로드할 항목이 없는 경우 경고
 			}
 		});
 	});
@@ -64,7 +64,7 @@ $(document).ready(function() {
 			e.preventDefault();
 		$(".item_list2:hidden").slice(0, 4).show(); // 숨김 설정된 다음 4개를 선택하여 표시
 			if($(".item_list2:hidden").length == 0){ // 숨겨진 DIV가 있는지 체크
-			alert("더 이상 항목이 없습니다"); // 더 이상 로드할 항목이 없는 경우 경고
+				$("#plus_list2").hide(); // 더 이상 로드할 항목이 없는 경우 경고
 			}
 		});
 	});
