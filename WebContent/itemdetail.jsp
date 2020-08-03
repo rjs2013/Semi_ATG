@@ -8,12 +8,28 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <head>
-<link rel="stylesheet" href="resources/css/itemdetail.css">
-<link rel="stylesheet" href="resources/css/Template.css">
 <meta charset="UTF-8">
 <title>Template</title>
     
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- 부트스트랩 css -->
+<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.css">
+<!-- 두개는 메뉴바 css -->
+<link rel="stylesheet" href="resources/css/main.css">
+<link rel="stylesheet" href="resources/css/navbar.css">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<!-- 두개는 순서 그대로!! 변경ㄴㄴ -->
+<script type="text/javascript"
+	src="resources/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript"
+	src="resources/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- itemdetail -->
+<link rel="stylesheet" href="resources/css/itemdetail.css">
+<link rel="stylesheet" href="resources/css/Template.css">
 
 </head>
 <body>
@@ -25,55 +41,60 @@
 	RegisterDto LDto = (RegisterDto)session.getAttribute("LDto");
 %>
    
-   <header id="header">
-   	<span><h1 onclick="location.href='main.jsp'">AT-G</h1></span>
-        <ul class="nav_icon">
-             <li><img src="resources/img/user.png" onclick="location.href=''"></li>
-             <li><img src="resources/img/basket.png" onclick="location.href=basket.jsp''"></li>
-             <li><img src="resources/img/login.png" onclick="location.href=''"></li>
-         </ul>
-          
-       <nav class="top_menu">          
-           <ul>
-               <li>
-               	<span>프로그램</span>
-                   <ol class="bottom_menu">
-                       <li onclick="location.href='tutorial.jsp'">튜토리얼</li>
-                       <li onclick="location.href='program.jsp'">루틴운동</li>
-                   </ol>
-               </li>
-               <li>
-               	<span>외부활동</span>
-                   <ol class="bottom_menu">
-                       <li onclick="location.href=''">공공체육시설</li>
-                       <li>-</li>
-                   </ol>
-               </li>
-               <li>
-               	<span>운동상품</span>
-                   <ol class="bottom_menu">
-                       <li onclick="location.href=''">운동기구찾기</li>
-                       <li onclick="location.href='Itemcontroller.do?command=itemlist'">상품판매</li>
-                   </ol>
-               </li>
-               <li>
-               	<span>커뮤니티</span>
-                   <ol class="bottom_menu">
-                       <li onclick="location.href=''">리뷰</li>
-                       <li onclick="location.href=''">실시간채팅</li>
-                   </ol>
-               </li>
-               <li>
-               	<span>고객지원</span>
-                   <ol class="bottom_menu">
-                       <li onclick="location.href=''">공지사항</li>
-                       <li onclick="location.href=''">QnA</li>
-                   </ol>
-               </li>
-           </ul>
-       </nav>
-   </header>
-   
+ <!-- 메뉴바 -->
+	<nav class="navbar navbar-light navbar-nav ">
+		<a class="navbar-brand navbar-nav " href="main.jsp"><h1>AT-G</h1></a>
+	</nav>
+	<ul class="nav justify-content-end mt-1">
+		<li class="nav-item"><a class="mr-3" href="">마이페이지</a></li>
+		<li class="nav-item"><a class="mr-3" href="">장바구니</a></li>
+		<li class="nav-item"><a class="mr-5" href="login.jsp">로그인</a></li>
+	</ul>
+
+
+
+	<div class="nav_cus sticky-top">
+		<nav
+			class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center dropdown sticky-top">
+			<ul class="nav justify-content-center ">
+				<li class="nav-item dropdown mr-5"><a
+					class="nav-link text-white " id="navbarDropdown" href="">프로그램</a>
+					<div class="dropdown-menu mt-2">
+						<a class="dropdown-item" href="">튜토리얼</a> <a class="dropdown-item"
+							href="">루틴운동</a>
+					</div></li>
+				<li class="nav-item dropdown mr-5"><a
+					class="nav-link text-white" id="navbarDropdown" href="">외부활동</a>
+					<div class="dropdown-menu mt-2"
+						aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="public.jsp">공공체육시설</a>
+						<a class="dropdown-item text-white" href="">-</a>
+					</div></li>
+				<li class="nav-item dropdown mr-5"><a
+					class="nav-link text-white" id="navbarDropdown" href="">운동상품</a>
+					<div class="dropdown-menu mt-2"
+						aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="">운동기구찾기</a> <a
+							class="dropdown-item" href="Itemcontroller.do?command=itemlist">상품판매</a>
+					</div></li>
+				<li class="nav-item dropdown mr-5"><a
+					class="nav-link text-white" id="navbarDropdown" href="">커뮤니티</a>
+					<div class="dropdown-menu mt-2"
+						aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="">리뷰</a> <a class="dropdown-item"
+							href="">실시간 채팅</a>
+					</div></li>
+				<li class="nav-item dropdown "><a class="nav-link text-white" id="navbarDropdown" href="">고객지원</a>
+					<div class="dropdown-menu mt-2" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="NoticeController.do?command=notice_list">공지사항</a> 
+						<a class="dropdown-item" href="">QnA</a>
+					</div></li>
+			</ul>
+		</nav>
+	</div>
+
+
+   <!-- 내용 -->
    <section class="secssion">
   	<div id="blank">
    	</div>
@@ -107,8 +128,9 @@
 		<div class="item_pay"><br/><br/>
 			<input type="hidden" name="item_url" value="<%=dto.getItem_url()%>">
 			<input type="hidden" name="item_no" value="<%=dto.getItem_no() %>">
-	   		<span><h1><input type="text" name="item_name" readonly="readonly" value="<%=dto.getItem_name()%>"></h1></span><br/>
-			<span><h1><input type="text" name="item_price" value="<%=dto.getItem_price() %>">원</h1></span><br/>
+			
+	   		<input type="text" name="item_name" readonly="readonly" value="<%=dto.getItem_name()%>"><br/><br>
+			<input type="text" name="item_price" value="<%=dto.getItem_price() %>">원<br/><br>
 				<div class="item_box">
 					택배
 				</div><br/>
