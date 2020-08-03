@@ -4,116 +4,126 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<html>
 <head>
-<link rel="stylesheet" href="resources/css/item.css">
-<link rel="stylesheet" href="resources/css/Template.css">
 <meta charset="UTF-8">
 <title>Template</title>
-    
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="resources/js/item.js"></script>
 
-   
+<!-- 부트스트랩 css -->
+<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.css">
+<!-- 두개는 메뉴바 css -->
+<link rel="stylesheet" href="resources/css/main.css">
+<link rel="stylesheet" href="resources/css/navbar.css">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<!-- 두개는 순서 그대로!! 변경ㄴㄴ -->
+<script type="text/javascript"
+	src="resources/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript"
+	src="resources/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- item -->
+<link rel="stylesheet" href="resources/css/item.css">
+<link rel="stylesheet" href="resources/css/Template.css">
+<script type="text/javascript" src="resources/js/item.js"></script>
     
 </head>
-
+<body>
 <% 
 	List<ItemDto> list = (List<ItemDto>)request.getAttribute("list");
 %>
-<body>
-   
-   <header id="header">
-   	<span><h1 onclick="location.href='main.jsp'">AT-G</h1></span>
-        <ul class="nav_icon">
-             <li><img src="resources/img/user.png" onclick="location.href=''"></li>
-             <li><img src="resources/img/basket.png" onclick="location.href=''"></li>
-             <li><img src="resources/img/login.png" onclick="location.href='Registercontroller.do?command=login'"></li>
-         </ul>
-          
-       <nav class="top_menu">          
-           <ul>
-               <li>
-               	<span>프로그램</span>
-                   <ol class="bottom_menu">
-                       <li onclick="location.href='tutorial.jsp'">튜토리얼</li>
-                       <li onclick="location.href='program.jsp'">루틴운동</li>
-                   </ol>
-               </li>
-               <li>
-               	<span>외부활동</span>
-                   <ol class="bottom_menu">
-                       <li onclick="location.href=''">공공체육시설</li>
-                       <li>-</li>
-                   </ol>
-               </li>
-               <li>
-               	<span>운동상품</span>
-                   <ol class="bottom_menu">
-                       <li onclick="location.href=''">운동기구찾기</li>
-                       <li onclick="location.href='Itemcontroller.do?command=itemlist'">상품판매</li>
-                   </ol>
-               </li>
-               <li>
-               	<span>커뮤니티</span>
-                   <ol class="bottom_menu">
-                       <li onclick="location.href=''">리뷰</li>
-                       <li onclick="location.href=''">실시간채팅</li>
-                   </ol>
-               </li>
-               <li>
-               	<span>고객지원</span>
-                   <ol class="bottom_menu">
-                       <li onclick="location.href=''">공지사항</li>
-                       <li onclick="location.href=''">QnA</li>
-                   </ol>
-               </li>
-           </ul>
-       </nav>
-   </header>
-   
-   <section class="secssion">
-   	<div id="blank">
-   	</div>
-   	<div id="banner_box">
-		<ul>
-			<li><img src="resources/img/banner1.png" onclick="location.href=''"/></li>
-			<li><img src="resources/img/banner2.png" onclick="location.href=''"/></li>
-			<li><img src="resources/img/banner3.png" onclick="location.href=''"/></li>
-			<li><img src="resources/img/banner4.png" onclick="location.href=''"/></li>
-			<li><img src="resources/img/banner5.png" onclick="location.href=''"/></li>
-		</ul>
+
+ <!-- 메뉴바 -->
+	<nav class="navbar navbar-light navbar-nav ">
+		<a class="navbar-brand navbar-nav " href="main.jsp"><h1>AT-G</h1></a>
+	</nav>
+	<ul class="nav justify-content-end mt-1">
+		<li class="nav-item"><a class="mr-3" href="">마이페이지</a></li>
+		<li class="nav-item"><a class="mr-3" href="">장바구니</a></li>
+		<li class="nav-item"><a class="mr-5" href="login.jsp">로그인</a></li>
+	</ul>
+
+
+
+	<div class="nav_cus sticky-top">
+		<nav
+			class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center dropdown sticky-top">
+			<ul class="nav justify-content-center ">
+				<li class="nav-item dropdown mr-5"><a
+					class="nav-link text-white " id="navbarDropdown" href="">프로그램</a>
+					<div class="dropdown-menu mt-2">
+						<a class="dropdown-item" href="">튜토리얼</a> <a class="dropdown-item"
+							href="">루틴운동</a>
+					</div></li>
+				<li class="nav-item dropdown mr-5"><a
+					class="nav-link text-white" id="navbarDropdown" href="">외부활동</a>
+					<div class="dropdown-menu mt-2"
+						aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="public.jsp">공공체육시설</a>
+						<a class="dropdown-item text-white" href="">-</a>
+					</div></li>
+				<li class="nav-item dropdown mr-5"><a
+					class="nav-link text-white" id="navbarDropdown" href="">운동상품</a>
+					<div class="dropdown-menu mt-2"
+						aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="">운동기구찾기</a> <a
+							class="dropdown-item" href="Itemcontroller.do?command=itemlist">상품판매</a>
+					</div></li>
+				<li class="nav-item dropdown mr-5"><a
+					class="nav-link text-white" id="navbarDropdown" href="">커뮤니티</a>
+					<div class="dropdown-menu mt-2"
+						aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="">리뷰</a> <a class="dropdown-item"
+							href="">실시간 채팅</a>
+					</div></li>
+				<li class="nav-item dropdown "><a class="nav-link text-white" id="navbarDropdown" href="">고객지원</a>
+					<div class="dropdown-menu mt-2" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="NoticeController.do?command=notice_list">공지사항</a> 
+						<a class="dropdown-item" href="">QnA</a>
+					</div></li>
+			</ul>
+		</nav>
 	</div>
-	
-	<br/><br/><br/><br/><br/>
-	
+
+   <!-- 내용 -->
+   <section class="secssion">
+
 	<div class="list_one">
 		<div class="text_list">
 			<span class="text_title">덤벨&바벨</span>
-			<div class="text_box"><h1>웨이트</h1></div>
+			<div class="text_box"><h4>웨이트</h4></div>
 		</div>
-		
 		<div class="item_box">
+		
 <%
 		for(ItemDto dto : list) {
 %>		
-			<div class="item_list" onclick="location.href='Itemcontroller.do?command=itemdetail&item_no=<%=dto.getItem_no()%>'">
-				<%=dto.getItem_name()%><img src="<%=dto.getItem_url()%>">
+			<div class="item_list" class="card" style="width: 16rem;" >
+				<img class="card-img-top" src="<%=dto.getItem_url()%>" onclick="location.href='Itemcontroller.do?command=itemdetail&item_no=<%=dto.getItem_no()%>'">
+				<div class="card-body bg-white border-top">
+					<h5 class="card-subtitle"><%=dto.getItem_name() %></h5>
+				</div>
 			</div>
 			
 <%
 		}
 %>			
-		</div>
+	
+	
+	</div>
 		
 		<div>
-			<div id="plus_list">+ 더 보기</div>
+			<input type="button" class="btn btn-custom" id="plus_list" value="+ 더 보기">
 		</div>
 	</div>
 	
 	<div class="list_two">
 		<div class="text_list">
 			<span class="text_title">매트</span>
-			<div class="text_box2"><h1>스트레칭</h1></div>
+			<div class="text_box2"><h4>스트레칭</h4></div>
 		</div>
 		
 		<div class="item_box">
