@@ -1,4 +1,3 @@
-
 <%@page import="com.atg.Notice.dto.NoticeDto"%>
 <%@page import="java.util.List"%>
 <%@page import="com.atg.Notice.biz.NoticeBizImpl"%>
@@ -18,7 +17,8 @@
 </head>
 <body>
 <%
-	List<NoticeDto> notice_list = (List<NoticeDto>)request.getAttribute("list");
+	NoticeBiz notice_biz = new NoticeBizImpl();
+	List<NoticeDto> notice_list = notice_biz.selectList();
 %>
 
 	<header id="header">
@@ -26,44 +26,44 @@
         <ul class="nav_icon">
              <li><img src="resources/img/user.png" onclick="location.href=''"></li>
              <li><img src="resources/img/basket.png" onclick="location.href=''"></li>
-             <li><img src="resources/img/login.png" onclick="location.href='login.jsp'"></li>
+             <li><img src="resources/img/login.png" onclick="location.href=''"></li>
          </ul>
           
        <nav class="top_menu">          
            <ul>
                <li>
-               	<span class="menu_title">프로그램</span>
+               	<span>프로그램</span>
                    <ol class="bottom_menu">
                        <li onclick="location.href='tutorial.jsp'">튜토리얼</li>
                        <li onclick="location.href='program.jsp'">루틴운동</li>
                    </ol>
                </li>
                <li>
-               	<span class="menu_title">외부활동</span>
+               	<span>외부활동</span>
                    <ol class="bottom_menu">
-                       <li onclick="location.href='public.jsp'">공공체육시설</li>
+                       <li onclick="location.href=''">공공체육시설</li>
                        <li>-</li>
                    </ol>
                </li>
                <li>
-               	<span class="menu_title">운동상품</span>
+               	<span>운동상품</span>
                    <ol class="bottom_menu">
-                       <li onclick="location.href='itemsearch.jsp'">운동기구찾기</li>
-                       <li onclick="location.href='item.jsp'">상품판매</li>
+                       <li onclick="location.href=''">운동기구찾기</li>
+                       <li onclick="location.href=''">상품판매</li>
                    </ol>
                </li>
                <li>
-               	<span class="menu_title">커뮤니티</span>
+               	<span>커뮤니티</span>
                    <ol class="bottom_menu">
-                       <li onclick="location.href='review.jsp'">리뷰</li>
+                       <li onclick="location.href=''">리뷰</li>
                        <li onclick="location.href=''">실시간채팅</li>
                    </ol>
                </li>
                <li>
-               	<span class="menu_title">고객지원</span>
+               	<span>고객지원</span>
                    <ol class="bottom_menu">
-                       <li onclick="location.href='NoticeController.do?command=notice_list'">공지사항</li>
-                       <li onclick="location.href='qna_user.jsp'">QnA</li>
+                       <li onclick="location.href=''">공지사항</li>
+                       <li onclick="location.href=''">QnA</li>
                    </ol>
                </li>
            </ul>

@@ -1,3 +1,4 @@
+<%@page import="com.atg.Register.dto.RegisterDto"%>
 <%@page import="com.atg.Cal.dto.CalDto"%>
 <%@page import="java.util.List"%>
 <%@page import="com.atg.util.Utils"%>
@@ -11,10 +12,10 @@
 <% response.setContentType("text/html; charset=UTF-8"); %>    
 
 <!DOCTYPE html>
-<html>
 <head>
 <link rel="stylesheet" href="resources/css/Template.css">
-<link rel="stylesheet" href="resources/css/calendar_insert.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <meta charset="UTF-8">
 <title>Template</title>
     
@@ -36,6 +37,8 @@
 	Calendar cal = Calendar.getInstance();
 	int hour = cal.get(Calendar.HOUR_OF_DAY);
 	int min = cal.get(Calendar.MINUTE);
+	
+	RegisterDto LDto = (RegisterDto) session.getAttribute("LDto");
 %>
    
    <header id="header">
@@ -43,44 +46,44 @@
         <ul class="nav_icon">
              <li><img src="resources/img/user.png" onclick="location.href=''"></li>
              <li><img src="resources/img/basket.png" onclick="location.href=''"></li>
-             <li><img src="resources/img/login.png" onclick="location.href='login.jsp'"></li>
+             <li><img src="resources/img/login.png" onclick="location.href=''"></li>
          </ul>
           
        <nav class="top_menu">          
            <ul>
                <li>
-               	<span class="menu_title">프로그램</span>
+               	<span>프로그램</span>
                    <ol class="bottom_menu">
                        <li onclick="location.href='tutorial.jsp'">튜토리얼</li>
                        <li onclick="location.href='program.jsp'">루틴운동</li>
                    </ol>
                </li>
                <li>
-               	<span class="menu_title">외부활동</span>
+               	<span>외부활동</span>
                    <ol class="bottom_menu">
-                       <li onclick="location.href='public.jsp'">공공체육시설</li>
+                       <li onclick="location.href=''">공공체육시설</li>
                        <li>-</li>
                    </ol>
                </li>
                <li>
-               	<span class="menu_title">운동상품</span>
+               	<span>운동상품</span>
                    <ol class="bottom_menu">
-                       <li onclick="location.href='itemsearch.jsp'">운동기구찾기</li>
-                       <li onclick="location.href='item.jsp'">상품판매</li>
+                       <li onclick="location.href=''">운동기구찾기</li>
+                       <li onclick="location.href=''">상품판매</li>
                    </ol>
                </li>
                <li>
-               	<span class="menu_title">커뮤니티</span>
+               	<span>커뮤니티</span>
                    <ol class="bottom_menu">
-                       <li onclick="location.href='review.jsp'">리뷰</li>
+                       <li onclick="location.href=''">리뷰</li>
                        <li onclick="location.href=''">실시간채팅</li>
                    </ol>
                </li>
                <li>
-               	<span class="menu_title">고객지원</span>
+               	<span>고객지원</span>
                    <ol class="bottom_menu">
-                       <li onclick="location.href='NoticeController.do?command=notice_list'">공지사항</li>
-                       <li onclick="location.href='qna_user.jsp'">QnA</li>
+                       <li onclick="location.href=''">공지사항</li>
+                       <li onclick="location.href=''">QnA</li>
                    </ol>
                </li>
            </ul>
@@ -88,14 +91,15 @@
    </header>
    
    <section class="secssion">
+   <br/><br/><br/><br/><br/><br/><br/>
    	<div id="box">
-   		<form action="CalenderController.do" method="post">
+   		<form action="CalController.do" method="post">
 		<input type="hidden" name="command" value="cal_insert" />
 		
-		<table id="box_tb" border="1">
+		<table class="table" id="box_tb">
 			<tr>
 				<th>ID</th>
-				<td><input type="text" name="mb_id" value="<%=dto.getMb_id() %>" readonly="readonly" /></td>
+				<td><input class="form-control mt-4 mb-2" type="text" name="mb_id" value="<%=LDto.getMb_id() %>" readonly="readonly" /></td>
 			</tr>
 			<tr>
 				<th>일정</th>
@@ -153,16 +157,16 @@
 			</tr>
 			<tr>
 				<th>제목</th>
-				<td><input type="text" name="title" /></td>
+				<td><input class="form-control mt-4 mb-2" type="text" name="ca_title" /></td>
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td><textarea rows="10" cols="70" name="content"></textarea></td>
+				<td class="form-group"><textarea class="form-control" style="height:300px; resize:none;" name="ca_content"></textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="right">
-					<input type="submit" value="일정작성" />
-					<input type="button" value="돌아가기" onclick="" />
+					<input class="btn btn-secondary mb-3" type="submit" value="일정작성" />
+					<input class="btn btn-secondary mb-3" type="button" value="돌아가기" onclick="" />
 				</td>
 			</tr>
 		</table>
@@ -188,6 +192,7 @@
            </p>
        </div>
    </footer>   
-    
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>     
 </body>
 </html>

@@ -91,15 +91,6 @@ public class NoticeController extends HttpServlet {
 			
 			RequestDispatcher dispatch = request.getRequestDispatcher("notice_search.jsp");
 			dispatch.forward(request, response);
-		
-		} else if(command.equals("notice_list")) {
-			
-			List<NoticeDto> list = biz.selectList();
-			
-			request.setAttribute("list", list);
-			
-			RequestDispatcher dispatch = request.getRequestDispatcher("notice_list.jsp");
-			dispatch.forward(request, response);
 		}
 		
 	}

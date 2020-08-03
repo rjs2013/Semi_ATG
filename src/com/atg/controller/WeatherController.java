@@ -2,6 +2,8 @@ package com.atg.controller;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.atg.Weather.biz.WeatherBiz;
+import com.atg.Weather.biz.WeatherBizImpl;
+import com.atg.Weather.dto.WeatherDto;
 
 @WebServlet("/weatherOpen")
 public class WeatherController extends HttpServlet {
@@ -29,9 +34,18 @@ public class WeatherController extends HttpServlet {
 	protected void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
-		String name = request.getParameter("search");
-		request.setAttribute("name", name);
-		RequestDispatcher rd = request.getRequestDispatcher("weatherInfo2.jsp");
+		
+		WeatherBiz biz = new WeatherBizImpl();
+		
+		String search = request.getParameter("search");
+		request.setAttribute("search", search);
+		System.out.println(search);
+		
+		String code = biz.search(search);
+		request.setAttribute("code", code);
+		System.out.println(code);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("weatherInfo.jsp");
 		rd.forward(request, response);
 	}
 

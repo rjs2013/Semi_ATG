@@ -22,7 +22,7 @@ public class CalDto {
 		this.mb_id = mb_id;
 	}
 	
-	public CalDto(int ca_no, String ca_title, String ca_contnet) {
+	public CalDto(int ca_no, String ca_title, String ca_content) {
 		this.ca_no = ca_no;
 		this.ca_title = ca_title;
 		this.ca_content = ca_content;

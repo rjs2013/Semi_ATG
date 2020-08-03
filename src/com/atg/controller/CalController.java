@@ -35,7 +35,9 @@ public class CalController extends HttpServlet {
 		
 		CalBiz cal_biz = new CalBizImpl();
 		
-		if(command.equals("cal_insert")) {
+		if(command.equals("calendar")) {
+			response.sendRedirect("calendar.jsp");
+		} else if(command.equals("cal_insert")) {
 			String year = request.getParameter("year");
 			String month = request.getParameter("month");
 			String date = request.getParameter("date");
@@ -51,7 +53,7 @@ public class CalController extends HttpServlet {
 			int res = cal_biz.insertCal(new CalDto(0, ca_title, ca_content, ca_mdate, null, mb_id));
 			
 			if(res > 0) {
-				response.sendRedirect("cal.do?command=calendar");
+				response.sendRedirect("calendar.jsp");
 			} 
 		} else if(command.equals("cal_list")) {
 			String year = request.getParameter("year");
@@ -84,7 +86,8 @@ public class CalController extends HttpServlet {
 			int res = cal_biz.update(new CalDto(ca_no, ca_title, ca_content));
 			
 			if(res > 0) {
-				response.sendRedirect("calendar.jsp");
+				RequestDispatcher dispatch = request.getRequestDispatcher("calendar.jsp");
+				dispatch.forward(request, response);
 			}
 		} else if(command.equals("cal_delete")) {
 			int ca_no = Integer.parseInt(request.getParameter("ca_no"));
@@ -94,7 +97,21 @@ public class CalController extends HttpServlet {
 			if(res > 0) {
 				response.sendRedirect("calendar.jsp");
 			}
-		}
+		} else if(command.equals("calListView")) {
+			String mb_id = request.getParameter("mb_id");
+			String year = request.getParameter("year");
+			String month = request.getParameter("month");
+			String date = request.getParameter("date");
+			
+			String yyyyMMdd = year + Utils.isTwo(month) + Utils.isTwo(date);
+			List<CalDto> list = cal_biz.getCalList(mb_id, yyyyMMdd);
+			
+			request.setAttribute("list", list);
+			
+			RequestDispatcher dispatch = request.getRequestDispatcher("cal_list.jsp");
+			dispatch.forward(request, response);
+			
+	}
 		
 	}
 
