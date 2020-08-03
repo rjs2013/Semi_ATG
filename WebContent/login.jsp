@@ -1,124 +1,153 @@
-<%@page import="com.atg.Register.dto.RegisterDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" session="false"%>
-<!DOCTYPE html>
-<head>
-<link rel="stylesheet" href="resources/css/login.css">
-<link rel="stylesheet" href="resources/css/Template.css">
-<meta charset="UTF-8">
-<title>Template</title>
-    
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	pageEncoding="UTF-8" session="false"%>
+	
+<%@page import="com.atg.Register.dto.RegisterDto"%>
 
-<script type="text/javascript" src="resources/js/login.js"></script>    
-    
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 부트스트랩 css -->
+<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.css">
+<!-- 로그인 css -->
+<link rel="stylesheet" href="resources/css/login.css">
+<!-- 2개는 메뉴바 css -->
+<link rel="stylesheet" href="resources/css/main.css">
+<link rel="stylesheet" href="resources/css/navbar.css">
+<!-- 전체 css -->
+<link rel="stylesheet" href="resources/css/Template.css">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+<!-- 부트스트랩 js (순서 그대로!! 순서 변경 ㄴㄴ) -->
+<script type="text/javascript"
+	src="resources/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript"
+	src="resources/bootstrap/js/bootstrap.min.js"></script>
+
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
- 
-  <header id="header">
-   	<span><h1 onclick="location.href='main.jsp'">AT-G</h1></span>
-        <ul class="nav_icon">
-             <li><img src="resources/img/user.png" onclick="location.href=''"></li>
-             <li><img src="resources/img/basket.png" onclick="location.href=''"></li>
-             <li><img src="resources/img/login.png" onclick="location.href='login.jsp'"></li>
-         </ul>
-          
-       <nav class="top_menu">          
-           <ul>
-               <li>
-               	<span class="menu_title">프로그램</span>
-                   <ol class="bottom_menu">
-                       <li onclick="location.href='tutorial.jsp'">튜토리얼</li>
-                       <li onclick="location.href='program.jsp'">루틴운동</li>
-                   </ol>
-               </li>
-               <li>
-               	<span class="menu_title">외부활동</span>
-                   <ol class="bottom_menu">
-                       <li onclick="location.href='public.jsp'">공공체육시설</li>
-                       <li>-</li>
-                   </ol>
-               </li>
-               <li>
-               	<span class="menu_title">운동상품</span>
-                   <ol class="bottom_menu">
-                       <li onclick="location.href='itemsearch.jsp'">운동기구찾기</li>
-                       <li onclick="location.href='item.jsp'">상품판매</li>
-                   </ol>
-               </li>
-               <li>
-               	<span class="menu_title">커뮤니티</span>
-                   <ol class="bottom_menu">
-                       <li onclick="location.href='review.jsp'">리뷰</li>
-                       <li onclick="location.href=''">실시간채팅</li>
-                   </ol>
-               </li>
-               <li>
-               	<span class="menu_title">고객지원</span>
-                   <ol class="bottom_menu">
-                       <li onclick="location.href='NoticeController.do?command=notice_list'">공지사항</li>
-                       <li onclick="location.href='qna_user.jsp'">QnA</li>
-                   </ol>
-               </li>
-           </ul>
-       </nav>
-   </header>
-   
-   <section class="secssion">
-   	<br>
-   	<br>
-   	<br>
-   	<br>
-   	<br>
-   	<br>
-   	
-   	<h1 class="login_title">로그인</h1>
-              <div class="login_box box">
-                 <form action="RegisterController.do" method="post">
-                 	<input type="hidden" name="command" value="login">
-                     <p class="id">
-                         <span>아이디 </span>
-                          <input class="input" type="text" placeholder="아이디를 입력해주세요" value="" name="id" autofocus>
-                      </p>
-                      <p class="pw">
-                          <span>비밀번호 </span>
-                          <input class="input" type="password" name="password" value="" >
-                      </p>
-                      <p class="login_button">
-                          <input type="submit" value="로그인">
-                      </p>
-                 </form>
-              </div>
-              <div class="s_login_box box">
-                  <div class="naver_box">NAVER 로그인</div>
-                  <div class="kakao_box">KAKAO 로그인</div>
-              </div>
-              <div class="find_box box">
-                  <p class="text_box">
-                      <a href="regist.jsp">회원가입</a> <span class="slash">/</span> <a href="Registercontroller.do?command=IDPWfind">ID,PW 찾기</a>
-                  </p>
-              </div>
 
-   </section>
-   
-   <div id="side">
-   	<div class="sidebar"><span class="t">1:1</span></div>
-   	<div class="sidebar"><span class="t">Top</span></div>
-   </div>
-   
-   <footer class="footer">
-       <div class="footer_info">
-           <p>
-               <span>사업자번호</span> : 0000-0000-0000
-           </p>
-           <p>
-               <span>위치</span> : 서울시 강남구 테헤란로 14번길 남도빌딩
-           </p>
-           <p>
-               <span>연락처</span> : 000-0000-0000
-           </p>
-       </div>
-   </footer>   
-    
+	<!-- 메뉴바 -->
+	<nav class="navbar navbar-light navbar-nav ">
+		<a class="navbar-brand navbar-nav " href="main.jsp"><h1>AT-G</h1></a>
+	</nav>
+	<ul class="nav justify-content-end mt-1">
+		<li class="nav-item"><a class="mr-3" href="">마이페이지</a></li>
+		<li class="nav-item"><a class="mr-3" href="">장바구니</a></li>
+		<li class="nav-item"><a class="mr-5" href="login.jsp">로그인</a></li>
+	</ul>
+
+
+	<div class="nav_cus sticky-top">
+		<nav
+			class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center dropdown sticky-top">
+			<ul class="nav justify-content-center ">
+				<li class="nav-item dropdown mr-5"><a
+					class="nav-link text-white " id="navbarDropdown" href="">프로그램</a>
+					<div class="dropdown-menu mt-2">
+						<a class="dropdown-item" href="">튜토리얼</a> <a class="dropdown-item"
+							href="">루틴운동</a>
+					</div></li>
+				<li class="nav-item dropdown mr-5"><a
+					class="nav-link text-white" id="navbarDropdown" href="">외부활동</a>
+					<div class="dropdown-menu mt-2"
+						aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="public.jsp">공공체육시설</a> <a
+							class="dropdown-item text-white" href="">-</a>
+					</div></li>
+				<li class="nav-item dropdown mr-5"><a
+					class="nav-link text-white" id="navbarDropdown" href="">운동상품</a>
+					<div class="dropdown-menu mt-2"
+						aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="">운동기구찾기</a> <a
+							class="dropdown-item" href="Itemcontroller.do?command=itemlist">상품판매</a>
+					</div></li>
+				<li class="nav-item dropdown mr-5"><a
+					class="nav-link text-white" id="navbarDropdown" href="">커뮤니티</a>
+					<div class="dropdown-menu mt-2"
+						aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="">리뷰</a> <a class="dropdown-item"
+							href="">실시간 채팅</a>
+					</div></li>
+				<li class="nav-item dropdown "><a class="nav-link text-white"
+					id="navbarDropdown" href="">고객지원</a>
+					<div class="dropdown-menu mt-2"
+						aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item"
+							href="NoticeController.do?command=notice_list">공지사항</a> <a
+							class="dropdown-item" href="">QnA</a>
+					</div></li>
+			</ul>
+		</nav>
+	</div>
+
+	<!-- 내용 -->
+	<div class="secssion">
+		<fieldset>
+			<legend class="col-form-label col-sm-4 pt-0">
+				<h4>Login</h4>
+			</legend>
+			<form class="p-4 " action="RegisterController.do" method="post">
+			<input type="hidden" name="command" value="login">
+				<div class="form-group row">
+					<div class="pl-3">
+						<label for="exampleInputLogin1">ID</label><br> 
+						<input type="text" class="form-control" id="exampleInputLogin1" placeholder="아이디를 입력해주세요." name="id" autofocus>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="pl-3 ">
+						<label for="exampleInputPassword1">Password</label><br>
+						<input type="password" class="form-control" id="exampleInputPassword1" name="password">
+					</div>
+				</div>
+				<button type="submit" class="btn btn-custom float-right mb-3">login</button>
+
+			</form>
+		</fieldset>
+		<fieldset>
+			<div class="snslogin inline">
+				<p>naver</p>
+				<p>kakao</p>
+			</div>
+
+			<div class="didi pt-5 pb-2 mx-auto text-center">
+				<button type="button"  class="btn btn-custom mr-5" onclick="location.href='regist.jsp'">회원가입</button>
+				<button type="button" class="btn btn-custom ml-5" onclick="location.href='RegisterController.do?command=IDPWfind'">id/pw 찾기</button>
+			</div>
+		</fieldset>
+	</div>
+
+
+
+	<!-- sidebar -->
+	 <div id="side">
+   		<div class="sidebar"><span class="t">1:1</span></div>
+   		<div class="sidebar"><span class="t">Top</span></div>
+   	</div>
+
+
+
+
+	<!-- footer -->
+	<footer class="footer">
+		<div class="footer_info">
+			<p>
+				<span>사업자번호</span> : 0000-0000-0000
+			</p>
+			<p>
+				<span>위치</span> : 서울시 강남구 테헤란로 14번길 남도빌딩
+			</p>
+			<p>
+				<span>연락처</span> : 000-0000-0000
+			</p>
+		</div>
+	</footer>
+
+
 </body>
 </html>

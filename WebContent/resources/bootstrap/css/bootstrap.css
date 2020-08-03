@@ -41,6 +41,7 @@
   box-sizing: border-box;
 }
 
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -1740,7 +1741,7 @@ pre code {
 }
 
 /*여기바꿈!!!!*/
-/* background-color : rgba(0, 0, 0, 0.075)*/
+/* 원래는  background-color : rgba(0, 0, 0, 0.075)*/
 .table-hover tbody tr:hover {
   color: #212529;
   background-color: #ccc;
@@ -2564,7 +2565,14 @@ fieldset:disabled a.btn {
 	/*#b8daf*/
 	background-color: #fff;
 	border-color: #b8daff
+	
 }
+.btn-custom:hover{
+	font-weight: 600;
+	
+}
+
+
 
 .btn-primary {
   color: #fff;
@@ -3410,10 +3418,12 @@ input[type="button"].btn-block {
   border: 0;
 }
 
+/*네비게이션 바 hover 하면 색상변경*/
 .dropdown-item:hover, .dropdown-item:focus {
   color: #16181b;
   text-decoration: none;
-  background-color: #f8f9fa;
+  font-weight: bold;
+  /*background-color: #f8f9fa;*/
 }
 
 .dropdown-item.active, .dropdown-item:active {
