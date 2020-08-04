@@ -29,7 +29,7 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="button" value="획인" onclick="confirmId('<%=idnotused %>>')">				
+					<input type="button" value="확인" onclick="confirmId('<%=idnotused %>>')">				
 				</td>
 			</tr>
 			

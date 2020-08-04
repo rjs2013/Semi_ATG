@@ -26,13 +26,17 @@
 <script type="text/javascript" src="resources/js/registform.js"></script>
 <link rel="stylesheet" href="resources/css/registform.css">
 <link rel="stylesheet" href="resources/css/Template.css">
-
-    
     
 </head>
 <body>
+ <%
+ String id = (String)request.getAttribute("id");
+ String email = (String)request.getAttribute("email");
+ String name = (String)request.getAttribute("name");
+
+ %>  
    
- <!-- 메뉴바 -->
+   	<!-- 메뉴바 -->
 	<nav class="navbar navbar-light navbar-nav ">
 		<a class="navbar-brand navbar-nav " href="main.jsp"><h1>AT-G</h1></a>
 	</nav>
@@ -41,7 +45,6 @@
 		<li class="nav-item"><a class="mr-3" href="">장바구니</a></li>
 		<li class="nav-item"><a class="mr-5" href="login.jsp">로그인</a></li>
 	</ul>
-
 
 
 	<div class="nav_cus sticky-top">
@@ -58,8 +61,8 @@
 					class="nav-link text-white" id="navbarDropdown" href="">외부활동</a>
 					<div class="dropdown-menu mt-2"
 						aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="public.jsp">공공체육시설</a>
-						<a class="dropdown-item text-white" href="">-</a>
+						<a class="dropdown-item" href="public.jsp">공공체육시설</a> <a
+							class="dropdown-item text-white" href="">-</a>
 					</div></li>
 				<li class="nav-item dropdown mr-5"><a
 					class="nav-link text-white" id="navbarDropdown" href="">운동상품</a>
@@ -75,84 +78,72 @@
 						<a class="dropdown-item" href="">리뷰</a> <a class="dropdown-item"
 							href="">실시간 채팅</a>
 					</div></li>
-				<li class="nav-item dropdown "><a class="nav-link text-white" id="navbarDropdown" href="">고객지원</a>
-					<div class="dropdown-menu mt-2" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="NoticeController.do?command=notice_list">공지사항</a> 
-						<a class="dropdown-item" href="">QnA</a>
+				<li class="nav-item dropdown "><a class="nav-link text-white"
+					id="navbarDropdown" href="">고객지원</a>
+					<div class="dropdown-menu mt-2"
+						aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item"
+							href="NoticeController.do?command=notice_list">공지사항</a> <a
+							class="dropdown-item" href="">QnA</a>
 					</div></li>
 			</ul>
 		</nav>
 	</div>
    
+   <!-- 내용 -->
    <section class="secssion">
-	
+   	
 	<h3>회원가입 form</h3>
-	<form action="RegisterController.do" id="target" name="form"   method="post" class="" >
+	
+	<form action="Registercontroller.do" method="post">
 		<input type="hidden" name="command" value="insert"/>
-		<table class="table table-sm">
+		<table class="table table-sm" >
 		<col width="100">
 		<col width="500">
 			<tr>
 				<th class="text-center">이름</th>
 				<td scope="col">
-				<input type="text" id="name" required="required" autofocus="autofocus" width="500px" min="2" name="name" maxlength="10" placeholder="이름입력">
+					<input type="text" required="required" autofocus="autofocus" width="500px" name="name" value="<%=(String)request.getAttribute("name")%>">
 				</td>
 			</tr>
 			<tr>
 				<th class="text-center">성별</th>
            		 <td>
-          		 	<input type="radio" name="gender" value="M" required="required" > 남
-            		<input class="ml-4" type="radio" name="gender" value="F" required="required" > 여
+          		 		<input type="radio" name="gender" value="M" required="required"/> 남 
+            			<input class="ml-4" type="radio" name="gender" value="F" required="required"/> 여 
         	    </td>
 			</tr>
 			<tr>
 				<th class="text-center">아이디</th>
 				<td>
-					<input type="text" id="ID" required="required" name="id"  min="2"  autocomplete="off" maxlength="12" title="아이디는 4~12자의 대소문자와 숫자로만 입력 가능합니다" placeholder="아이디를 입력해주세요">
-					<input class="btn btn-custom btn-sm" type="button" value="아이디 중복 확인" placeholder="아이디를 입력" onclick="idCheck();">
+					<input type="text" required="required" name="id"  maxlength="20" value="<%=(String)request.getAttribute("naverCode")%>">
+					<input class="btn btn-custom btn-sm" type="button" value="아이디 중복 확인"  onclick="idCheck();">
 				</td>
 			</tr>
 			<tr>
 				<th class="text-center">비밀번호</th>
 				<td>
-					<input type="password" id="password1"  placeholder="비밀번호입력"  min="4" maxlength="12" name="pw" required="required">
+					<input type="password" id="password1" required="required" min="4" maxlength="12" name="pw">
 				</td>
 			</tr>
 			<tr>
-				<th class="text-center">비밀번호확인</th>
-				<td><input type="password" id="password2"  placeholder="비밀번호확인"  min="4" maxlength="12" required="required" onkeyup="fn_compare_pwd()">
-										<span id="s_result">비밀번호가 일치하지 않습니다.</span>				
-				</td>
+				<th class="text-center">비밀번호 확인</th>
+				<td><input type="password" id="password2" placeholder="비밀번호확인" required="required" min="4" maxlength="12"></td>
 			</tr>
 			<tr>
 				<th class="text-center">이메일</th>
-					<td>
+				<td>
 					<input type="email"  id="email"    maxlength="50" autocomplete="off" name="email" class="" placeholder="이메일을 입력해주세요" required="required"> 
 					<button class="btn btn-custom btn-sm" id="echeck" onclick="emailCheck();">이메일중복</button>
+				</td>
 			</tr>
-			
-		 <%-- 	<table border="0" class="numcheck" >
-					<tr>
-						<td>
-							<b>인증번호</b>
-							<input maxlength="5" type="text" name="code" id="code" onkeyup="checkCode()" placeholder="인증번호를 입력하세여"  required="required"/>
-							<div id="checkCode"></div></td>
-							<td>
-							<input type="hidden" readonly="readonly" name="code_check"
-								id="code_check" value="<%=request.getAttribute("code")%>" />
-						</td>
-					</tr>+
-					9
-				</table>
-				<input id="hi" type="hidden" value="인증하기" onclick="ck();"> --%>
-			
-			<tr>
+			<tr >
 				<th class="text-center">주소</th>
 				<td>
-				<input type="text" id="sample6_postcode" class="addr1" name="addr1" placeholder="우편번호" readonly="readonly">
-				<input class="btn btn-custom btn-sm" type="button" onclick="sample6_execDaumPostcode()"    value="우편번호 찾기" ><br>
-				<input type="text" id="sample6_address"  class="addr1" name="addr2" placeholder="주소" readonly="readonly"><br>
-				<input type="text" id="sample6_detailAddress"  class="addr1" name="addr3" placeholder="상세주소" required="required">
+					<input type="text" id="sample6_postcode" class="addr1" name="addr1" placeholder="우편번호" readonly="readonly">
+					<input class="btn btn-custom btn-sm" type="button" onclick="sample6_execDaumPostcode()"    value="우편번호 찾기" ><br>
+					<input type="text" id="sample6_address"  class="addr1" name="addr2" placeholder="주소" readonly="readonly"><br>
+					<input type="text" id="sample6_detailAddress"  class="addr1" name="addr3" placeholder="상세주소" required="required">
 				</td>
 			</tr>
 		<tr>
@@ -166,11 +157,13 @@
 
    </section>
    
+   <!-- side bar -->
    <div id="side">
    	<div class="sidebar"><span class="t">1:1</span></div>
    	<div class="sidebar"><span class="t">Top</span></div>
    </div>
    
+   <!-- footer -->
    <footer class="footer">
        <div class="footer_info">
            <p>

@@ -1,8 +1,12 @@
 package com.atg.controller;
 
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +19,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 import com.atg.Register.biz.RegisterBiz;
 import com.atg.Register.biz.RegisterBizImpl;
@@ -128,6 +135,74 @@ public class RegisterController extends HttpServlet {
 			
 		}else if(command.equals("emailCheck")) {
 			response.sendRedirect("EmailCheck.jsp");
+		
+		
+		}else if(command.equals("naver")) {
+			
+			//System.out.println("dd");
+			String access_token = (String) session.getAttribute("access_token");
+			String refresh_token = (String)session.getAttribute("refresh_token");
+			//System.out.println(access_token);
+			//System.out.println(refresh_token);
+			if (access_token != null) {
+				try {
+					String apiurl = "https://openapi.naver.com/v1/nid/me";
+					URL url = new URL(apiurl);
+					String header = "Bearer " + access_token;
+					HttpURLConnection con = (HttpURLConnection) url.openConnection();
+					con.setRequestMethod("GET");
+					con.setRequestProperty("Authorization", header);
+					int responseCode = con.getResponseCode();
+					BufferedReader br;
+					if (responseCode == 200) { // 정상 호출
+						br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+
+					} else { // 에러 발생
+						br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+					}
+
+					String inputLine;
+					StringBuffer res = new StringBuffer();
+					while ((inputLine = br.readLine()) != null) {
+						res.append(inputLine);
+					}
+					
+					System.out.println(responseCode);
+					System.out.println(res);
+					br.close();
+					
+					
+		    	        JSONParser parsing = new JSONParser();
+		    	        Object obj = parsing.parse(res.toString());
+		    	        JSONObject jsonObj = (JSONObject)obj;
+		    	        JSONObject resObj = (JSONObject)jsonObj.get("response");
+		    	        
+		    	        String naverCode = (String)resObj.get("id");
+		    	        String email = (String)resObj.get("email");
+		    	        String name = (String)resObj.get("name");
+		    	        //String gender = (String)resObj.get("gender");
+		    	        
+		    	        request.setAttribute("naverCode", naverCode);
+		    			request.setAttribute("email",email);
+		    			request.setAttribute("name", name);
+		    			
+		    			System.out.println(naverCode);
+		    			dispatch(request, response, "registform2.jsp");
+					
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+				//dispatch(request, response, "registform2.jsp");
+			}
+			
+			
+		}else if(command.equals("kakao")) {
+			System.out.println("됏따");
+			String email = (String)request.getParameter("email");
+			System.out.println(email);
+			
 		}
 
 

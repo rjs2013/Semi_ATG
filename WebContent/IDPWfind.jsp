@@ -3,71 +3,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="IDPWfind.css">
-<link rel="stylesheet" href="Template.css">
 <meta charset="UTF-8">
 <title>Template</title>
+
+<!-- 부트스트랩 css -->
+<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.css">
+<!-- 두개는 메뉴바 css -->
+<link rel="stylesheet" href="resources/css/main.css">
+<link rel="stylesheet" href="resources/css/navbar.css">
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
-<script type="text/javascript" src="resources/js/IDPWfind.js"/></script>
+<!-- 두개는 순서 그대로!! 변경ㄴㄴ -->
+<script type="text/javascript"
+	src="resources/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript"
+	src="resources/bootstrap/js/bootstrap.min.js"></script>
 
+<!-- IDPWfind -->
+<script type="text/javascript" src="resources/js/IDPWfind.js"/></script>
+<link rel="stylesheet" href="resources/css/IDPWfind.css">
+<link rel="stylesheet" href="resources/css/Template.css">
 
 </head>
 <body>
-
-	<header id="header">
-   	<span><h1 onclick="location.href='main.jsp'">AT-G</h1></span>
-        <ul class="nav_icon">
-             <li><img src="resources/img/user.png" onclick="location.href=''"></li>
-             <li><img src="resources/img/basket.png" onclick="location.href=''"></li>
-             <li><img src="resources/img/login.png" onclick="location.href='login.jsp'"></li>
-         </ul>
-          
-       <nav class="top_menu">          
-           <ul>
-               <li>
-               	<span class="menu_title">프로그램</span>
-                   <ol class="bottom_menu">
-                       <li onclick="location.href='tutorial.jsp'">튜토리얼</li>
-                       <li onclick="location.href='program.jsp'">루틴운동</li>
-                   </ol>
-               </li>
-               <li>
-               	<span class="menu_title">외부활동</span>
-                   <ol class="bottom_menu">
-                       <li onclick="location.href='public.jsp'">공공체육시설</li>
-                       <li>-</li>
-                   </ol>
-               </li>
-               <li>
-               	<span class="menu_title">운동상품</span>
-                   <ol class="bottom_menu">
-                       <li onclick="location.href='itemsearch.jsp'">운동기구찾기</li>
-                       <li onclick="location.href='item.jsp'">상품판매</li>
-                   </ol>
-               </li>
-               <li>
-               	<span class="menu_title">커뮤니티</span>
-                   <ol class="bottom_menu">
-                       <li onclick="location.href='review.jsp'">리뷰</li>
-                       <li onclick="location.href=''">실시간채팅</li>
-                   </ol>
-               </li>
-               <li>
-               	<span class="menu_title">고객지원</span>
-                   <ol class="bottom_menu">
-                       <li onclick="location.href='NoticeController.do?command=notice_list'">공지사항</li>
-                       <li onclick="location.href='qna_user.jsp'">QnA</li>
-                   </ol>
-               </li>
-           </ul>
-       </nav>
-   </header>
-
-	
 <%!
 
 	int random = 0;
@@ -80,28 +41,80 @@
 %>
 
 
-		<br><br>
-		<br><br>
+<!-- 메뉴바 -->
+	<nav class="navbar navbar-light navbar-nav ">
+		<a class="navbar-brand navbar-nav " href="main.jsp"><h1>AT-G</h1></a>
+	</nav>
+	<ul class="nav justify-content-end mt-1">
+		<li class="nav-item"><a class="mr-3" href="">마이페이지</a></li>
+		<li class="nav-item"><a class="mr-3" href="">장바구니</a></li>
+		<li class="nav-item"><a class="mr-5" href="login.jsp">로그인</a></li>
+	</ul>
+
+
+
+	<div class="nav_cus sticky-top">
+		<nav
+			class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center dropdown sticky-top">
+			<ul class="nav justify-content-center ">
+				<li class="nav-item dropdown mr-5"><a
+					class="nav-link text-white " id="navbarDropdown" href="">프로그램</a>
+					<div class="dropdown-menu mt-2">
+						<a class="dropdown-item" href="">튜토리얼</a> <a class="dropdown-item"
+							href="">루틴운동</a>
+					</div></li>
+				<li class="nav-item dropdown mr-5"><a
+					class="nav-link text-white" id="navbarDropdown" href="">외부활동</a>
+					<div class="dropdown-menu mt-2"
+						aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="public.jsp">공공체육시설</a>
+						<a class="dropdown-item text-white" href="">-</a>
+					</div></li>
+				<li class="nav-item dropdown mr-5"><a
+					class="nav-link text-white" id="navbarDropdown" href="">운동상품</a>
+					<div class="dropdown-menu mt-2"
+						aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="">운동기구찾기</a> <a
+							class="dropdown-item" href="Itemcontroller.do?command=itemlist">상품판매</a>
+					</div></li>
+				<li class="nav-item dropdown mr-5"><a
+					class="nav-link text-white" id="navbarDropdown" href="">커뮤니티</a>
+					<div class="dropdown-menu mt-2"
+						aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="">리뷰</a> <a class="dropdown-item"
+							href="">실시간 채팅</a>
+					</div></li>
+				<li class="nav-item dropdown "><a class="nav-link text-white" id="navbarDropdown" href="">고객지원</a>
+					<div class="dropdown-menu mt-2" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="NoticeController.do?command=notice_list">공지사항</a> 
+						<a class="dropdown-item" href="">QnA</a>
+					</div></li>
+			</ul>
+		</nav>
+	</div>
+
+	<!-- 내용 -->
+	<div class="secssion">
 		<div id="loginer">
 		<!--아이디 찾기 ~~~~~~~~~~~~~~~~~아이디 찾기 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 				<fieldset id="ids">
-				<div id="title"><h1>아이디찾기</h1></div>
+				<div id="title"><h3>아이디찾기</h3></div>
 				<br>
 					 <input type="text" id="name" name="name" placeholder="이름"size="20" required="required" >
 					<br><br>
 					
           				<input type="text" id="email" name="email" autocomplete="off" placeholder="이메일" >@<select name="emadress" id="emadress"><option value="naver.com">naver.com</option><option value="nate.com">nate.com</option>
               			 <option value="hanmail.com">hanmail.com</option><option value="gmail.com">gmail.com</option></select>
-              			 <button id="checkEmail" value="" onclick="emailCheck('<%=getRandom()%>');">인증번호전송</button>
+              			 <button id="checkEmail" class="btn btn-custom" value="" onclick="emailCheck('<%=getRandom()%>');">인증번호전송</button>
 						
 						<br>
 						<br> <!-- emailCheck값에  getRandom 매개변수로 넣어서 전송  -->
 						<input type="text" id="confirm" name="" placeholder="인증번호입력 ">
-						<input type="button" onclick="checkNum('<%= random %>')" value="인증확인" />
+						<input type="button" class="btn btn-custom" onclick="checkNum('<%= random %>')" value="인증확인" />
 						<br>
 						<br>
 					<input type="hidden" value="아이디찾기" id="idsearch" onclick="idfind();" ><span id="result"></span>
-					<button id="move" onclick="location.href='login.jsp'">로그인하러가기</button>
+					<button id="move" class="btn btn-custom" onclick="location.href='login.jsp'">로그인하러가기</button>
 				</fieldset>
 		</div>
 		
@@ -112,7 +125,7 @@
 		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~비밀번호 찾기 ~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 
 			<fieldset id="pws">
-			<div id="title"><h1>비밀번호찾기</h1></div>
+			<div id="title"><h3>비밀번호찾기</h3></div>
 			<br>
 			<input type="text" id="PWid" name="pwid" placeholder="아이디 " required="required">
 				 <br><br>
@@ -122,18 +135,18 @@
               
               <input type="text" name="pwemailAdress" id="PWemail" autocomplete="off" placeholder="이메일">@<select name="pwemadress" id="PWemadress"><option value="naver.com">naver.com</option><option value="nate.com">nate.com</option>
                 <option value="hanmail.com">hanmail.com</option><option value="gmail.com">gmail.com</option></select>
-                <button id="PWcheckEmail" value="" onclick="PWemailCheck('<%=getRandom()%>');">인증번호전송</button>
+                <button id="PWcheckEmail" value="" class="btn btn-custom" onclick="PWemailCheck('<%=getRandom()%>');">인증번호전송</button>
                 
                 <br>
                 <br>
                 <input type="text" id="pwconfirm" name="" placeholder="인증번호입력 ">
-				<input type="button" onclick="PWcheckNum('<%= random %>')" value="인증확인"/>
+				<input type="button" class="btn btn-custom" onclick="PWcheckNum('<%= random %>')" value="인증확인"/>
 				<br><br>
 				<input type="hidden" id="pwsearch" value="비밀번호찾기"  onclick="pwfind();"><span id="pwresult"></span>
-				<button id="move" onclick="location.href='login.jsp'">로그인하러가기</button>
+				<button id="move" class="btn btn-custom" onclick="location.href='login.jsp'">로그인하러가기</button>
 			</fieldset>	
 
-	</section>
+	</div>
 
 
 	<div id="side">
