@@ -30,6 +30,12 @@ public class MemberDto {
 		this.mb_no = mb_no;
 		this.mb_grade = mb_grade;
 	}
+	
+	public MemberDto(int mb_no, String mb_name,String mb_photo) {
+		this.mb_no = mb_no;
+		this.mb_name = mb_name;
+		this.mb_photo = mb_photo;
+	}
 
 	public int getMb_no() {
 		return mb_no;

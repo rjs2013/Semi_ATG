@@ -83,6 +83,25 @@ public class MemberDaoImpl extends MemberSqlMapConfig implements MemberDao {
 		}
 		return list;
 	}
+
+	@Override
+	public int update_photo(MemberDto dto) {
+		SqlSession session = null;
+		int res = 0;
+		
+		try {
+			session = getSqlSessionFactory().openSession(false);
+		
+			res = session.update(namespace+"update_photo", dto);
+			if(res > 0) {
+				session.commit();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
 	
 	
 	

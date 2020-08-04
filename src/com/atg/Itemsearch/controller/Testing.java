@@ -60,9 +60,9 @@ public class Testing extends HttpServlet {
 		String fileName = null;
 		// Get all the parts from request and write it to the file on server
 		for (Part part : request.getParts()) {
-			getPartConfig(part);
+			//getPartConfig(part);
 			fileName = getFileName(part);
-			System.out.println(" LOG :: [ 업로드 파일 경로 ] :: " + uploadFilePath + File.separator + fileName);
+			//System.out.println(" LOG :: [ 업로드 파일 경로 ] :: " + uploadFilePath + File.separator + fileName);
 			part.write(uploadFilePath + File.separator + fileName);
 		}
 		
@@ -72,36 +72,45 @@ public class Testing extends HttpServlet {
 		String[] compare = {"Dumbbell","Kettlebell","Ball","Stepper","Running Machine","Foam roller",
 				"Hula hoop","Rowing machine","Push-up bar","Step box"};
 		
-		loop:
-		for(int i = 0; i < compare.length; i ++) {
-			
+		boolean stop = false;
+		for(int i = 0; i <= compare.length; i ++) {
+						
 			for(int j = 0; j < list.length; j++) {
 				
-				if(list[j].equals("Dumbbell")) {
+				if(list[j].equals(compare[i])) {
 					
 					System.out.println("찾아따");
-					
-					// Biz 수정
-					//List<ItemsearchDto> item_list = biz.selectNameList(list[i]);
-					
+										
 					request.setAttribute("itemName", list[j]);
 					RequestDispatcher dispatcher = request.getRequestDispatcher("itemsearch.jsp");
 					dispatcher.forward(request, response);
 					
-					break loop;
-				} else {
-					
-					request.setAttribute("itemName", "해당 운동기구를 찾지 못했습니다.");
-					RequestDispatcher dispatcher = request.getRequestDispatcher("itemsearch.jsp");
-					dispatcher.forward(request, response);
-					
-				}
+					stop = true;
+					break;
+				} 
 				
+			}
+			
+			if(stop == true) {				
+				break;
+			}
+			
+			//System.out.println(i+" / "+compare.length);
+			if (i >= compare.length-1) {
+				
+				System.out.println("못찾아따");
+				
+				request.setAttribute("itemName", "해당 운동기구를 찾지 못했습니다.");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("itemsearch.jsp");
+				dispatcher.forward(request, response);
+				
+				break;
 			}
 		}
 		
 	}
 	
+	/*
 	private void getPartConfig(Part part) {
 		System.out.println("------------------------------------------------------------");
 		System.out.println(" LOG :: [HTML태그의 폼태그 이름] :: " + part.getName());
@@ -111,17 +120,14 @@ public class Testing extends HttpServlet {
 		}
 		System.out.println("------------------------------------------------------------");
 	}
-
-	/**
-	 * Utility method to get file name from HTTP header content-disposition
-	 */
+	*/
 	private String getFileName(Part part) {
 		String contentDisp = part.getHeader("content-disposition");
-		System.out.println(" LOG :: content-disposition 헤더 :: = " + contentDisp);
+		//System.out.println(" LOG :: content-disposition 헤더 :: = " + contentDisp);
 		String[] tokens = contentDisp.split(";");
 		for (String token : tokens) {
 			if (token.trim().startsWith("filename")) {
-				System.out.println(" LOG :: 파일 이름 :: " + token);
+				//System.out.println(" LOG :: 파일 이름 :: " + token);
 				return token.substring(token.indexOf("=") + 2, token.length() - 1);
 			}
 		}

@@ -9,6 +9,7 @@ public interface MemberBiz {
 	public List<MemberDto> selectList();
 	public MemberDto selectOne(int mb_no);
 	public int update(MemberDto dto);
+	public int update_photo(MemberDto dto);
 	public List<MemberDto> search(String search_op, String search);
 
 }

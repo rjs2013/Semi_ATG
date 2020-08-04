@@ -58,10 +58,21 @@
   <servlet>
   	<servlet-name>API</servlet-name>
   	<servlet-class>com.atg.Itemsearch.controller.Testing</servlet-class>
-  </servlet>  
+  </servlet>
+  
   <servlet-mapping>
   	<servlet-name>API</servlet-name>
-	<url-pattern>/controller.do</url-pattern>
+	<url-pattern>/controller</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>UploadPhoto</servlet-name>
+  	<servlet-class>com.atg.mypage.controller.Mypage_FileUpload</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>UploadPhoto</servlet-name>
+	<url-pattern>/PhotoController</url-pattern>
   </servlet-mapping>
   
   

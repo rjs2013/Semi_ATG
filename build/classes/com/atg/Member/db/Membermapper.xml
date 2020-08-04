@@ -21,6 +21,12 @@
   	WHERE MB_NO = #{mb_no}
   </update>
   
+  <update id="update_photo" parameterType="memberDto">
+  	UPDATE MEMBER
+  	SET MB_PHOTO = #{mb_photo}, MB_NAME = #{mb_name}
+  	WHERE MB_NO = #{mb_no}
+  </update>
+  
   <select id="search" resultType="memberDto">
 	SELECT MB_NO, MB_NAME, MB_GENDER, MB_ID, MB_EMAIL, MB_ADDR
 	FROM MEMBER

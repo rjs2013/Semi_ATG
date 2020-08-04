@@ -26,4 +26,9 @@ public class MemberBizImpl implements MemberBiz {
 		return dao.search(search_op, search);
 	}
 
+	@Override
+	public int update_photo(MemberDto dto) {
+		return dao.update_photo(dto);
+	}
+
 }

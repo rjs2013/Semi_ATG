@@ -8,10 +8,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>itemsearch</title>
+<title>Insert title here</title>
 
 <link rel="stylesheet" href="resources/css/Template.css">
-<link rel="stylesheet" href="resources/css/itemsearch.css">
+<link rel="stylesheet" href="resources/css/mypage.css">
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script type="text/javascript">
@@ -39,7 +39,13 @@
 	
 	
 </script>
-<script type="text/javascript" src="resources/js/itemsearch.js"></script>
+<script type="text/javascript" src="resources/js/mypage.js"></script>
+
+
+<%
+	//RegisterDto LDto = (RegisterDto) session.getAttribute("LDto");
+%>
+
 </head>
 <body>
 
@@ -92,33 +98,13 @@
        </nav>
    </header>
    
-   <section class="secssion">
-   
-   	<h1>소도구 찾기</h1>
-   	<div class="find_box">
-   		<img src="resources/img/question_mark.png" id="sample_img" >
-   	</div>
-   	
-   	<!-- enctype="multipart/form-data"  -->
-	<form action="controller" method="post" enctype="multipart/form-data">
-		<input type="file" name="fileName" onchange="setThumbnail(event);"/> 
-		<input type="submit" value="찾기" />
-	</form>
-	
-	<p class="text_box">
-		찾으신 물건은 "
-		<input type="text" value="${itemName }" id="item_result"> " 입니다.
-	</p>
-	
-	<!-- 
-	<p class="p">연관상품</p>
-	<ul class="item_recomend">
-	
-		<li><img src="resources/img/dumbbell_1.jpg"></li>
-		<li><img src=""></li>
-		<li><img src=""></li>
-	</ul>
-    -->
+   <section class="secssion">   		
+	   	<div class="propile_box">
+	   		<div class="propile_img_box">
+	   			<img alt="" src="resources/img/profile_img.png<%-- <%=LDto.getMb_photo()%> --%>" id="propile_img">
+	   		</div>
+	   		<p class="propile_id">ID :ddd <%-- <%=LDto.getMb_id()%> --%></p>
+	   	</div>   
    </section>
    
    <div id="side">
