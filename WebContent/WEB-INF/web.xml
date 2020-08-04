@@ -55,4 +55,14 @@
     <url-pattern>/RegisterController.do</url-pattern>
   </servlet-mapping>
   
+  
+  <servlet>
+  	<servlet-name>inbody</servlet-name>
+  	<servlet-class>com.atg.controller.InbodyController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>inbody</servlet-name>
+  	<url-pattern>/InbodyController.do</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
