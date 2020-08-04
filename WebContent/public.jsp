@@ -27,8 +27,6 @@
     
 </head>
 <body>
-<<<<<<< HEAD
-
    <!-- 메뉴바 -->
 	<nav class="navbar navbar-light navbar-nav ">
 		<a class="navbar-brand navbar-nav " href="main.jsp"><h1>AT-G</h1></a>
@@ -80,8 +78,7 @@
 		</nav>
 	</div>
 
-=======
-   
+
    <header id="header">
    	<span><h1 onclick="location.href='main.jsp'">AT-G</h1></span>
         <ul class="nav_icon">
@@ -130,8 +127,7 @@
            </ul>
        </nav>
    </header>
->>>>>>> branch 'develop' of https://github.com/rjs2013/Semi_ATG.git
-   
+
    <section class="secssion">
  
    	
