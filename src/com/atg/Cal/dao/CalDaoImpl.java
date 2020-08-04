@@ -11,7 +11,7 @@ import com.atg.Cal.dto.CalDto;
 
 public class CalDaoImpl extends CalSqlMapConfig implements CalDao{
 
-	private String namespace = "cal.";
+	private String namespace = "calendar.";
 	
 	public int insertCal(CalDto dto) {
 		SqlSession session = null;
@@ -35,15 +35,15 @@ public class CalDaoImpl extends CalSqlMapConfig implements CalDao{
 	}
 	public List<CalDto> getCalList(String mb_id, String yyyyMMdd) {
 		SqlSession session = null;
-		
 		List<CalDto> list = new ArrayList<CalDto>();
+		
 		Map<String, String> map = new HashMap<>();
 		map.put("mb_id", mb_id);
 		map.put("yyyyMMdd", yyyyMMdd);
 		
 		try {
 			session = getSqlSessionFactory().openSession(false);
-			list = session.selectOne(namespace+"getCalList", map);
+			list = session.selectList(namespace+"getCalList", map);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -51,13 +51,13 @@ public class CalDaoImpl extends CalSqlMapConfig implements CalDao{
 		}
 		return list;
 	}
-	public CalDto selectOne(int mb_no) {
+	public CalDto selectOne(int ca_no) {
 		SqlSession session = null;
 		CalDto dto = null;
 		
 		try {
 			session = getSqlSessionFactory().openSession(false);
-			dto = session.selectOne(namespace+"selectOne", mb_no);
+			dto = session.selectOne(namespace+"selectOne", ca_no);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -69,7 +69,6 @@ public class CalDaoImpl extends CalSqlMapConfig implements CalDao{
 		SqlSession session = null;
 		
 		int res = 0;
-		
 		try {
 			session = getSqlSessionFactory().openSession(false);
 			
@@ -85,6 +84,8 @@ public class CalDaoImpl extends CalSqlMapConfig implements CalDao{
 		
 		return res;
 	}
+	
+	
 	public List<CalDto> getViewList(String mb_id, String yyyyMM) {
 		SqlSession session = null;
 		
@@ -95,7 +96,7 @@ public class CalDaoImpl extends CalSqlMapConfig implements CalDao{
 		
 		try {
 			session = getSqlSessionFactory().openSession(false);
-			list = session.selectOne(namespace+"getViewList", map);
+			list = session.selectList(namespace+"getViewList", map);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -103,13 +104,14 @@ public class CalDaoImpl extends CalSqlMapConfig implements CalDao{
 		}
 		return list;
 	}
-	public int getViewCount(String mb_id, String yyyyMM) {
+	
+	public int getViewCount(String mb_id, String yyyyMMdd) {
 		SqlSession session = null;
 		
 		int count = 0;
 		Map<String, String> map = new HashMap<>();
 		map.put("mb_id", mb_id);
-		map.put("yyyyMM", yyyyMM);
+		map.put("yyyyMMdd", yyyyMMdd);
 		
 		try {
 			session = getSqlSessionFactory().openSession(false);
@@ -119,6 +121,7 @@ public class CalDaoImpl extends CalSqlMapConfig implements CalDao{
 		} finally {
 			session.close();
 		}
+		System.out.println(count);
 		return count;
 	}
 	
@@ -141,6 +144,22 @@ public class CalDaoImpl extends CalSqlMapConfig implements CalDao{
 		}
 		
 		return res;
+	}
+	
+	public List<CalDto> getView(String mb_id) {
+		SqlSession session = null;
+		
+		List<CalDto> list = new ArrayList<CalDto>();
+		
+		try {
+			session = getSqlSessionFactory().openSession(false);
+			list = session.selectList(namespace+"getView", mb_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return list;
 	}
 	
 }

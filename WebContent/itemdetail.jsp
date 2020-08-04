@@ -8,6 +8,10 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <head>
+<<<<<<< HEAD
+=======
+<link rel="stylesheet" href="resources/css/itemdetail.css">
+>>>>>>> branch 'develop' of https://github.com/rjs2013/Semi_ATG.git
 <meta charset="UTF-8">
 <title>Template</title>
     

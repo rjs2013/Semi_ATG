@@ -9,15 +9,13 @@
 				var year = $(".y").text().trim();
 				var month = $(".m").text().trim();
 				var cDate = aCountView.text().trim();
-				
+				var mb_id = $("#id").text().trim();
 				var yyyyMMdd = year + isTwo(month) + isTwo(cDate);
-				
 				$.ajax({
 					type : "post",
 					url : "countajax.do",
-					data : "mb_id="+mb_id&"yyyyMMdd="+yyyyMMdd,
+					data : "mb_id="+mb_id+"&yyyyMMdd="+yyyyMMdd,
 					dataType : "json",
-					async : false,								// true : 비동기 / false : 동기
 					success : function(msg) {
 						var count = msg.calcount;				// msg는 json이기 때문에 가능?
 						aCountView.after("<div class='cpreview'>"+count+"</div>");		
@@ -33,7 +31,11 @@
 		);
 	});
 
-
+	$(function() {
+		function calList(){
+			
+		}
+	});
 
 
 

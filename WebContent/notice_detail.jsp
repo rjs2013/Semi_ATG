@@ -10,7 +10,8 @@
 <html>
 <head>
 <link rel="stylesheet" href="resources/css/Template.css">
-<link rel="stylesheet" href="resources/css/notice.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <meta charset="UTF-8">
 <title>Template</title>
     
@@ -40,44 +41,44 @@
         <ul class="nav_icon">
              <li><img src="resources/img/user.png" onclick="location.href=''"></li>
              <li><img src="resources/img/basket.png" onclick="location.href=''"></li>
-             <li><img src="resources/img/login.png" onclick="location.href='login.jsp'"></li>
+             <li><img src="resources/img/login.png" onclick="location.href=''"></li>
          </ul>
           
        <nav class="top_menu">          
            <ul>
                <li>
-               	<span class="menu_title">프로그램</span>
+               	<span>프로그램</span>
                    <ol class="bottom_menu">
                        <li onclick="location.href='tutorial.jsp'">튜토리얼</li>
                        <li onclick="location.href='program.jsp'">루틴운동</li>
                    </ol>
                </li>
                <li>
-               	<span class="menu_title">외부활동</span>
+               	<span>외부활동</span>
                    <ol class="bottom_menu">
-                       <li onclick="location.href='public.jsp'">공공체육시설</li>
+                       <li onclick="location.href=''">공공체육시설</li>
                        <li>-</li>
                    </ol>
                </li>
                <li>
-               	<span class="menu_title">운동상품</span>
+               	<span>운동상품</span>
                    <ol class="bottom_menu">
-                       <li onclick="location.href='itemsearch.jsp'">운동기구찾기</li>
-                       <li onclick="location.href='item.jsp'">상품판매</li>
+                       <li onclick="location.href=''">운동기구찾기</li>
+                       <li onclick="location.href=''">상품판매</li>
                    </ol>
                </li>
                <li>
-               	<span class="menu_title">커뮤니티</span>
+               	<span>커뮤니티</span>
                    <ol class="bottom_menu">
-                       <li onclick="location.href='review.jsp'">리뷰</li>
+                       <li onclick="location.href=''">리뷰</li>
                        <li onclick="location.href=''">실시간채팅</li>
                    </ol>
                </li>
                <li>
-               	<span class="menu_title">고객지원</span>
+               	<span>고객지원</span>
                    <ol class="bottom_menu">
-                       <li onclick="location.href='NoticeController.do?command=notice_list'">공지사항</li>
-                       <li onclick="location.href='qna_user.jsp'">QnA</li>
+                       <li onclick="location.href=''">공지사항</li>
+                       <li onclick="location.href=''">QnA</li>
                    </ol>
                </li>
            </ul>
@@ -85,36 +86,40 @@
    </header>
    
    <section class="secssion">
-	<div id="box">
-		<table id="box_tb" border="1">
+   
+   <br/><br/><br/><br/><br/><br/><br/>
+   
+	<div class="container my-1" id="box" style="width : 80%;">
+		<div class="row">
+		
+		<table class="table" id="box_tb">
 			<col width = "10%" />
 			<col width = "30%" />
-			<tr>
+			<tr class="table-active">
 				<th>글 번호</th>
 				<td><%=dto.getNt_no() %></td>
 			</tr>
 			<tr>
-				<th>제목</th>
-				<td><input id="title" type="text" value="<%=dto.getNt_title() %>" readonly="readonly" /></td>
+				<th scope="col">제목</th>
+				<td><%=dto.getNt_title() %></td>
 			</tr>
 			<tr>
-				<th>작성자</th>
+				<th scope="col">작성자</th>
 				<td>관리자</td>
 			</tr>
 			<tr>
-				<th>내용</th>
-				<td>
-					<textarea id="content" readonly="readonly" ><%=dto.getNt_content() %></textarea>
-				</td>
+				<th scope="col">내용</th>
+				<td><textarea style="width:100%; height:300px; resize:none;"><%=dto.getNt_content() %></textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="right">
-					<input type="button" value="수정" onclick="location.href='notice_update.jsp?nt_no=<%=dto.getNt_no() %>'" />
-					<input type="button" value="목록" onclick="location.href='adminpage.jsp'" />
-					<input type="button" value="삭제" onclick="location.href='NoticeController.do?command=delete&nt_no=<%=dto.getNt_no() %>'" />
+					<input class="btn btn-secondary mb-3" type="button" value="수정" onclick="location.href='notice_update.jsp?nt_no=<%=dto.getNt_no() %>'" />
+					<input class="btn btn-secondary mb-3" type="button" value="목록" onclick="location.href='adminpage.jsp'" />
+					<input class="btn btn-secondary mb-3" type="button" value="삭제" onclick="location.href='NoticeController.do?command=delete&nt_no=<%=dto.getNt_no() %>'" />
 				</td>
 			</tr>
 		</table>
+		</div>
 	</div>
    </section>
    
@@ -136,7 +141,8 @@
            </p>
        </div>
    </footer>   
-    
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>    
 </body>
 </html>
 

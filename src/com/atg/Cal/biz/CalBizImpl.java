@@ -26,6 +26,7 @@ public class CalBizImpl implements CalBiz {
 		return dao.update(dto);
 	}
 	
+	
 	public List<CalDto> getViewList(String mb_id, String yyyyMM) {
 		return dao.getViewList(mb_id, yyyyMM);
 	}
@@ -36,6 +37,10 @@ public class CalBizImpl implements CalBiz {
 	
 	public int delete(int ca_no) {
 		return dao.delete(ca_no);
+	}
+	
+	public List<CalDto> getView(String mb_id) {
+		return dao.getView(mb_id);
 	}
 	
 }
