@@ -54,7 +54,34 @@
     <servlet-name>register</servlet-name>
     <url-pattern>/RegisterController.do</url-pattern>
   </servlet-mapping>
-  
+
+  	<servlet>
+		<servlet-name>basket</servlet-name>
+		<servlet-class>com.atg.controller.Basketcontroller</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>basket</servlet-name>
+		<url-pattern>/Basketcontroller.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>item</servlet-name>
+		<servlet-class>com.atg.controller.Itemcontroller</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>item</servlet-name>
+		<url-pattern>/Itemcontroller.do</url-pattern>
+	</servlet-mapping>
+
+ <servlet>
+  	<servlet-name>inbody</servlet-name>
+  	<servlet-class>com.atg.controller.InbodyController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>inbody</servlet-name>
+  	<url-pattern>/InbodyController.do</url-pattern>
+  </servlet-mapping>
+
   <servlet>
   	<servlet-name>API</servlet-name>
   	<servlet-class>com.atg.Itemsearch.controller.Testing</servlet-class>
@@ -77,3 +104,4 @@
   
   
 </web-app>
+

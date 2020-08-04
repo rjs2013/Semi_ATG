@@ -11,6 +11,7 @@
 <% response.setContentType("text/html; charset=UTF-8"); %>    
 
 <!DOCTYPE html>
+<html>
 <head>
 <link rel="stylesheet" href="resources/css/Template.css">
 <link rel="stylesheet" href="resources/css/calendar_insert.css">

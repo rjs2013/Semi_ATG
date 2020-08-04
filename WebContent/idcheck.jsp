@@ -10,8 +10,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-	<script type="text/javascript" src="resources/js/idcheck.js"/></script>
 
+<script type="text/javascript" src="resources/js/idcheck.js"/></script>
 
 </head>
 <body>
@@ -29,16 +29,12 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="button" value="획인" onclick="confirmId('<%=idnotused %>>')">				
+					<input type="button" value="확인" onclick="confirmId('<%=idnotused %>>')">				
 				</td>
 			</tr>
 			
 		
 		</table>
-	
-
-
-
 
 </body>
 </html>

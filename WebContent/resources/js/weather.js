@@ -2,10 +2,10 @@ $(function() {
 	$("#weaView").click(											
 			function() {
 				var url = "weatherOpen";							// url = weatherOpen
-				var code = $("#address option:selected").val();		// code = id가 address인 셀렉트 태그의 선택 값
+				var search = $("#address").val();					
 				$.ajax({
 					type : "GET",									// get 방식으로 보낸다
-					url : url + "?code=" + code,					// ?
+					url : url + "?search=" + search,				
 					dataType : "text",								// text 타입으로 받는다
 					success : function(data) {						// 성공 시 실행 (weatherInfo.jsp 값을 가지고)
 						 
