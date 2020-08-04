@@ -16,45 +16,45 @@
    <header id="header">
    	<span><h1 onclick="location.href='main.jsp'">AT-G</h1></span>
         <ul class="nav_icon">
-             <li><img src="resources/img/user.png" onclick="location.href=''"></li>
-             <li><img src="resources/img/basket.png" onclick="location.href=''"></li>
+             <li><img src="resources/img/user.png" onclick="location.href='mypage.jsp'"></li>
+             <li><img src="resources/img/basket.png" onclick="location.href='basket.jsp'"></li>
              <li><img src="resources/img/login.png" onclick="location.href='login.jsp'"></li>
          </ul>
           
        <nav class="top_menu">          
            <ul>
                <li>
-               	<span class="menu_title">프로그램</span>
+               	<span>프로그램</span>
                    <ol class="bottom_menu">
                        <li onclick="location.href='tutorial.jsp'">튜토리얼</li>
                        <li onclick="location.href='program.jsp'">루틴운동</li>
                    </ol>
                </li>
                <li>
-               	<span class="menu_title">외부활동</span>
+               	<span>외부활동</span>
                    <ol class="bottom_menu">
                        <li onclick="location.href='public.jsp'">공공체육시설</li>
                        <li>-</li>
                    </ol>
                </li>
                <li>
-               	<span class="menu_title">운동상품</span>
+               	<span>운동상품</span>
                    <ol class="bottom_menu">
                        <li onclick="location.href='itemsearch.jsp'">운동기구찾기</li>
                        <li onclick="location.href='item.jsp'">상품판매</li>
                    </ol>
                </li>
                <li>
-               	<span class="menu_title">커뮤니티</span>
+               	<span>커뮤니티</span>
                    <ol class="bottom_menu">
                        <li onclick="location.href='review.jsp'">리뷰</li>
-                       <li onclick="location.href=''">실시간채팅</li>
+                       <li onclick="location.href='chat.jsp'">실시간채팅</li>
                    </ol>
                </li>
                <li>
-               	<span class="menu_title">고객지원</span>
+               	<span>고객지원</span>
                    <ol class="bottom_menu">
-                       <li onclick="location.href='NoticeController.do?command=notice_list'">공지사항</li>
+                       <li onclick="location.href='notice_user.jsp'">공지사항</li>
                        <li onclick="location.href='qna_user.jsp'">QnA</li>
                    </ol>
                </li>
@@ -78,19 +78,17 @@
    	<br>
    	
    		<div id="box">
-   	<form action="WeatherController.do" method="post">
-		<table id="box_tb" border="1" style="width : 100%;">
+   	
+		<table id="box_tb" border="1" style="width:100%;">
 		<caption>날씨</caption>
 			<tr>
 				<td colspan="8" bgcolor="skyblue"><b>* 지 역 *</b></td>
 			</tr>
-			<tr>
-				<td colspan="3">주소를 선택 하세요
-				<select id="address">
-					<option value= "4111757000">경기도 수원시 영통1동</option>
-					<option value= "4141051000">경기도 군포시 군포1동</option>
-				</select>
-				<td><input type="button" id="weaView" value="날씨보기"></td>	
+			<tr>				
+				<td colspan="4">
+					<input style="width : 95%;" id="address" type="search" name="search" placeholder="동/면/읍 입력" />
+   					<button class="search_bt" id="weaView" type="submit"><img class="search_img" width="15" hright="15" src="resources/img/glass1.jpg" alt="검색" /></button>
+				</td>	
 			</tr>
 			<tr>
 				<td colspan="4" bgcolor="skyblue"><b>* 현재 날씨 *</b></td>
@@ -113,8 +111,10 @@
 				<td><input type="text" id="pop" readonly></td>		
 			</tr>
 		</table>
-	</form>
+	 
    	</div>
+   	
+   	<br/><br/><br/><br/><br/>
    	
    	<div id="map" style="width:100%;height:400px;" ></div>
 	

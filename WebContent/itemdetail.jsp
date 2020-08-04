@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <head>
-<link rel="stylesheet" href="../../resources/css/itemdetail.css">
+<link rel="stylesheet" href="resources/css/itemdetail.css">
 <meta charset="UTF-8">
 <title>Template</title>
     

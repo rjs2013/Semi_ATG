@@ -26,6 +26,10 @@
 <body>
 
 <%
+
+	List<CalDto> list = (List<CalDto>) request.getAttribute("list");
+	RegisterDto LDto = (RegisterDto) session.getAttribute("LDto");
+	
 	Calendar cal = Calendar.getInstance();
 
 	int year = cal.get(Calendar.YEAR);
@@ -61,15 +65,11 @@
 	// 마지막 일
 	int lastDay = cal.getActualMaximum(cal.DAY_OF_MONTH);
 	
-	/* 달력에 일정 표현
-	String mb_id = request.getParameter("mb_id");
-	CalDto dto = new CalDto();
-	CalBiz cal_biz = new CalBizImpl();
+	CalBiz biz = new CalBizImpl();
+	String mb_id = LDto.getMb_id();
 	String yyyyMM = year + Utils.isTwo(month+"");
-	List<CalDto> clist = cal_biz.getViewList(mb_id, yyyyMM);*/
-	
-	CalDto dto = (CalDto) request.getAttribute("cal_dto");
-	List<CalDto> clist = (List<CalDto>) request.getAttribute("cal_dto");
+	List<CalDto> clist = biz.getViewList(mb_id, yyyyMM);
+	List<CalDto> calist = biz.getView(mb_id);
 	
 %>
    
@@ -84,38 +84,38 @@
        <nav class="top_menu">          
            <ul>
                <li>
-               	<span class="menu_title">프로그램</span>
+               	<span>프로그램</span>
                    <ol class="bottom_menu">
                        <li onclick="location.href='tutorial.jsp'">튜토리얼</li>
                        <li onclick="location.href='program.jsp'">루틴운동</li>
                    </ol>
                </li>
                <li>
-               	<span class="menu_title">외부활동</span>
+               	<span>외부활동</span>
                    <ol class="bottom_menu">
-                       <li onclick="location.href='public.jsp'">공공체육시설</li>
+                       <li onclick="location.href=''">공공체육시설</li>
                        <li>-</li>
                    </ol>
                </li>
                <li>
-               	<span class="menu_title">운동상품</span>
+               	<span>운동상품</span>
                    <ol class="bottom_menu">
-                       <li onclick="location.href='itemsearch.jsp'">운동기구찾기</li>
-                       <li onclick="location.href='item.jsp'">상품판매</li>
+                       <li onclick="location.href=''">운동기구찾기</li>
+                       <li onclick="location.href=''">상품판매</li>
                    </ol>
                </li>
                <li>
-               	<span class="menu_title">커뮤니티</span>
+               	<span>커뮤니티</span>
                    <ol class="bottom_menu">
-                       <li onclick="location.href='review.jsp'">리뷰</li>
+                       <li onclick="location.href=''">리뷰</li>
                        <li onclick="location.href=''">실시간채팅</li>
                    </ol>
                </li>
                <li>
-               	<span class="menu_title">고객지원</span>
+               	<span>고객지원</span>
                    <ol class="bottom_menu">
-                       <li onclick="location.href='NoticeController.do?command=notice_list'">공지사항</li>
-                       <li onclick="location.href='qna_user.jsp'">QnA</li>
+                       <li onclick="location.href=''">공지사항</li>
+                       <li onclick="location.href=''">QnA</li>
                    </ol>
                </li>
            </ul>
@@ -148,9 +148,9 @@
 			for(int i = 1; i <= lastDay; i++) {
 		%>
 		<td>
-			<a class="countView" href="CalController.do?command=cal_list&year=<%=year%>&month=<%=month%>&date=<%=i%>&mb_id=<%=dto.getMb_id() %>" style="color:<%=Utils.fontColor(i, dayOfWeek) %>"><%=i %></a>
+			<a class="countView" href="CalController.do?command=calListView&year=<%=year%>&month=<%=month%>&date=<%=i%>&mb_id=<%=LDto.getMb_id() %>" style="color:<%=Utils.fontColor(i, dayOfWeek) %>"><%=i %></a>
 				
-			<a href="cal_insert.jsp?year=<%=year%>&month=<%=month%>&date=<%=i%>&lastday=<%=lastDay%>&mb_id=<%=dto.getMb_id() %>">
+			<a href="cal_insert.jsp?year=<%=year%>&month=<%=month%>&date=<%=i%>&lastday=<%=lastDay%>">
 					<img alt="일정 추가" src="resources/img/pen.png" width="10" height="10" />
 			</a>
 				
@@ -173,11 +173,32 @@
 		<tr>
 			<td colspan="7" align="left">
 				<div>
-				 여기에 표시?
-				 <%=dto.getMb_id() %>
-				</div>
-				<div>
-				
+				<span id="id"><%=LDto.getMb_id() %></span>
+				<table style="width:100%;">
+				<caption>오늘, 내일 일정</caption>
+					<tr>
+						<th>일정</th>
+						<th>시간</th>
+					<tr>
+					</tr>
+					<%
+						if(calist.size() == 0) {
+					%>
+					<tr>
+						<td colspan="2">----- 일정이 없습니다. -----</td>
+					</tr>
+					<%
+						} else {
+							for(CalDto dto : calist) {
+					%>
+						<td><a style="color:blue;" href="CalController.do?command=cal_detail&ca_no=<%=dto.getCa_no() %>"><%=dto.getCa_title() %></a></td>
+						<td><%=dto.getCa_mdate() %></td>
+					</tr>
+					<%
+							}
+						}
+					%>
+				</table>
 				</div>
 			</td>
 		</tr>

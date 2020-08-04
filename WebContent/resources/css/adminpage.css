@@ -1,18 +1,12 @@
-	h1{
-		padding-bottom : 20%;
-	}
-
 	aside{
-		border : solid 1px black;
 		float : left;
-		height : 70%;
+		height : 1000px;
 		width : 20%;
 	}
 	
 	.box{
-		border : solid 1px black;
 		float : right;
-		height : 70%;
+		height : 1000px;
 		width : 78%;
 		position : relative;
 	}
@@ -34,10 +28,6 @@
 	.search_bt{
 		background-color : white;
 		border : 0;
-	}
-	
-	#box_tb{
-		width : 100%;
 	}
 	
 	
